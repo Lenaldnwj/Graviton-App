@@ -18,31 +18,32 @@ module.exports = {
     const client = github.client()
     const ghrepo = client.repo('Graviton-Code-Editor/Graviton-App')
     ghrepo.releases(function (err, res, body) {
+      console.log('hello')
+      console.log(res)
       if (!err) {
-        for (i = 0; i < res.length + 1; i++) {
-          if (i < res.length + 1) {
-            if (semver.gt(res[i].tag_name, GravitonInfo.version)) {
-              new Dialog({
-                id: 'update',
-                title: `<strong>${GravitonInfo.state}</strong> Update avaiable !`,
-                content: getTranslation('DetectedUpdateMessage') + ' ' + res[i].tag_name + '?',
-                buttons: {
-                  [getTranslation('No')]: {},
-                  [getTranslation('Yes')]: {
-                    click: ()=> updater.update(),
-                    important: true
-                  }
+      for (let i = 0; i < res.length; i++) {
+          console.log(res[i].tag_name + ' ' + GravitonInfo.version)
+          console.log(semver.gt(res[i].tag_name, GravitonInfo.version))
+          if (semver.gt(res[i].tag_name, GravitonInfo.version)) {
+            new Dialog({
+              id: 'update',
+              title: `<strong>${GravitonInfo.state}</strong> Update avaiable !`,
+              content: getTranslation('DetectedUpdateMessage') + ' ' + res[i].tag_name + '?',
+              buttons: {
+                [getTranslation('No')]: {},
+                [getTranslation('Yes')]: {
+                  click: ()=> updater.update(),
+                  important: true
                 }
-              })
-              return
-            }
+              }
+            })
+            return
           }
-          new Notification({
-            title: 'Graviton',
-            content: getTranslation('NoUpdateFound')
-          })
-          return
-        }
+      }
+        new Notification({
+          title: 'Graviton',
+          content: getTranslation('NoUpdateFound')
+        })
       }
     })
   },
