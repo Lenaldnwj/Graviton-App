@@ -21,24 +21,22 @@ module.exports = {
       console.log('hello')
       console.log(res)
       if (!err) {
-      for (let i = 0; i < res.length; i++) {
+        if (res[0].tag_name !== GravitonInfo.version) {
           console.log(res[i].tag_name + ' ' + GravitonInfo.version)
           console.log(semver.gt(res[i].tag_name, GravitonInfo.version))
-          if (semver.gt(res[i].tag_name, GravitonInfo.version)) {
-            new Dialog({
-              id: 'update',
-              title: `<strong>${GravitonInfo.state}</strong> Update avaiable !`,
-              content: getTranslation('DetectedUpdateMessage') + ' ' + res[i].tag_name + '?',
-              buttons: {
-                [getTranslation('No')]: {},
-                [getTranslation('Yes')]: {
-                  click: ()=> updater.update(),
-                  important: true
-                }
+          new Dialog({
+            id: 'update',
+            title: `<strong>${GravitonInfo.state}</strong> Update avaiable !`,
+            content: getTranslation('DetectedUpdateMessage') + ' ' + res[0].tag_name + '?',
+            buttons: {
+              [getTranslation('No')]: {},
+              [getTranslation('Yes')]: {
+                click: ()=> this.update(),
+                important: true
               }
-            })
-            return
-          }
+            }
+          })
+          return
       }
         new Notification({
           title: 'Graviton',
