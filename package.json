@@ -47,6 +47,7 @@
     "appdata-path": "^1.0.0",
     "codemirror": "^5.49.2",
     "degit": "^2.2.2",
+    "electron-reload": "^1.5.0",
     "electron-window-state": "^5.0.3",
     "fs-extra": "^8.1.0",
     "light-sanitize-html": "^1.0.2",
