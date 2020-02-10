@@ -12,7 +12,8 @@ License > https://github.com/Graviton-Code-Editor/Graviton-App/blob/master/LICEN
 const url = require("url")
 const path = require("path")
 const { app, BrowserWindow } = require("electron")
-const windowStateKeeper = require('electron-window-state');
+require('electron-reload')(__dirname)
+const windowStateKeeper = require('electron-window-state')
 let main // Main window
 
 app.on("ready", function() {
