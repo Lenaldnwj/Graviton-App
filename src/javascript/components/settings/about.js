@@ -20,7 +20,7 @@ function returnAbout(){
                 <button class="button1" onclick="graviton.dialogChangelog();">${
                 getTranslation('Changelog')
                 }</button>
-                <button class="button1" onclick="updater.check_updates();">${
+                <button class="button1" onclick="updater.checkUpdates();">${
                 getTranslation('CheckUpdates')
                 }</button>
             </gv-blockcontent>
