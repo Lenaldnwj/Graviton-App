@@ -30,10 +30,18 @@ function getLink () {
   return 'https://github.com/Graviton-Code-Editor/Graviton-App/releases'
 }
 
-function checkUpdates () {
+function getGithubInfo () {
   const github = require('octonode')
+  console.log(github)
   const client = github.client()
+  console.log(client)
   const ghrepo = client.repo('Graviton-Code-Editor/Graviton-App')
+  console.log(ghrepo)
+  return ghrepo
+}
+
+function checkUpdates () {
+  const ghrepo = getGithubInfo()
   ghrepo.releases(function (err, res, body) {
     // console.log(res)
     if (!err) {
@@ -65,5 +73,6 @@ function checkUpdates () {
 module.exports = {
   checkUpdates: checkUpdates,
   update: update,
-  getLink: getLink
+  getLink: getLink,
+  getGithubInfo: getGithubInfo,
 }

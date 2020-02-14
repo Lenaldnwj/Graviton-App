@@ -1,6 +1,5 @@
-const assert = require('chai').assert
 
-const { getLink, update, checkUpdates } = require('../../../../src/javascript/api/updater')
+const { getLink, update, checkUpdates, getGithubInfo } = require('../../../../src/javascript/api/updater')
 
 const Application = require('spectron').Application
 const electronPath = require('electron')
@@ -9,10 +8,14 @@ const fs = require('fs')
 
 
 
-describe('getLink function', function () {
-  it('Check update link', function () {
-    assert.equal(getLink(), 'https://github.com/Graviton-Code-Editor/Graviton-App/releases')
-  })
+test('URL should be https://github.com/Graviton-Code-Editor/Graviton-App/releases', () => {
+  expect(getLink()).toBe('https://github.com/Graviton-Code-Editor/Graviton-App/releases')
+})
+
+test('Name of github Repository should be  Graviton-Code-Editor/Graviton-App', () => {
+  const ghrepo = getGithubInfo()
+  const gitHubName = ghrepo.name
+  expect(gitHubName).toBe('Graviton-Code-Editor/Graviton-App')
 })
 
 // describe('update and getLink function', function () {

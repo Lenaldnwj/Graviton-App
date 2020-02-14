@@ -25,7 +25,7 @@ app.on("ready", function() {
 		webPreferences: {
 			nativeWindowOpen: true,
 			nodeIntegrationInWorker: true,
-			nodeIntegration: true
+			nodeIntegration: true,
 		},
 		frame: process.platform === "linux",
 		x:mainWindowState.x,
