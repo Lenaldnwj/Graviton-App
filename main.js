@@ -16,7 +16,7 @@ require('electron-reload')(__dirname)
 const windowStateKeeper = require('electron-window-state')
 let main // Main window
 
-app.on("ready", function() {
+app.on("ready", function () {
 	let mainWindowState = windowStateKeeper({
 		defaultWidth: 750,
 		defaultHeight: 650
@@ -39,6 +39,7 @@ app.on("ready", function() {
 		icon: __dirname + '/assets/general.png',
 		show:false
 	})
+	main.webContents.openDevTools();
 	mainWindowState.manage(main);
 	main.loadURL(
 		url.format({
