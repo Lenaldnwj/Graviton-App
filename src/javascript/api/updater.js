@@ -32,22 +32,27 @@ function getLink () {
 
 function getGithubInfo () {
   const github = require('octonode')
-  console.log(github)
+  // console.log(github)
   const client = github.client()
-  console.log(client)
+  // console.log(client)
   const ghrepo = client.repo('Graviton-Code-Editor/Graviton-App')
-  console.log(ghrepo)
+  // console.log(ghrepo)
   return ghrepo
+}
+
+function getGravitonInfo () {
+  return GravitonInfo
 }
 
 function checkUpdates () {
   const ghrepo = getGithubInfo()
   ghrepo.releases(function (err, res, body) {
     // console.log(res)
+    const GravitonInfo = getGravitonInfo()
     if (!err) {
       if (res[0].tag_name !== GravitonInfo.version) {
-        // console.log(res[i].tag_name + ' ' + GravitonInfo.version)
-        // console.log(semver.gt(res[i].tag_name, GravitonInfo.version))
+        console.log(res[i].tag_name + ' ' + GravitonInfo.version)
+        console.log(semver.gt(res[i].tag_name, GravitonInfo.version))
         new Dialog({
           id: 'update',
           title: `<strong>${GravitonInfo.state}</strong> Update avaiable !`,
@@ -71,8 +76,9 @@ function checkUpdates () {
 }
 
 module.exports = {
-  checkUpdates: checkUpdates,
-  update: update,
   getLink: getLink,
+  update: update,
   getGithubInfo: getGithubInfo,
+  checkUpdates: checkUpdates,
+  getGravitonInfo: getGravitonInfo,
 }
