@@ -51,11 +51,10 @@ function checkUpdates () {
     const GravitonInfo = getGravitonInfo()
     if (!err) {
       if (res[0].tag_name !== GravitonInfo.version) {
-        console.log(res[i].tag_name + ' ' + GravitonInfo.version)
-        console.log(semver.gt(res[i].tag_name, GravitonInfo.version))
-        new Dialog({
+        console.log(res[0].tag_name + ' ' + GravitonInfo.version)
+        const dialog = new Dialog({
           id: 'update',
-          title: `<strong>${GravitonInfo.state}</strong> Update avaiable !`,
+          title: `<strong>${GravitonInfo.state}</strong> Update available!`,
           content: getTranslation('DetectedUpdateMessage') + ' ' + res[0].tag_name + '?',
           buttons: {
             [getTranslation('No')]: {},
@@ -65,7 +64,7 @@ function checkUpdates () {
             }
           }
         })
-        return
+        return dialog
       }
       new Notification({
         title: 'Graviton',

@@ -1,15 +1,28 @@
+// jest.unmock('../../../../src/javascript/api/updater')
+// const updater = require('../../../../src/javascript/api/updater')
 
-const { getLink, update, checkUpdates, getGithubInfo } = require('../../../../src/javascript/api/updater')
+const { getLink, update, checkUpdates, getGithubInfo, getGravitonInfo } = require('../../../../src/javascript/api/updater')
+// getGravitonInfo = jest.fn()
+const Dialog = require('../../../../src/javascript/api/constructors/dialogs').Dialog
 
-const Application = require('spectron').Application
-const electronPath = require('electron')
-const path = require('path')
-const fs = require('fs')
+jest.mock('../../../../src/javascript/api/updater')
 
 
+// const Application = require('spectron').Application
+// const electronPath = require('electron')
+// const path = require('path')
+// const fs = require('fs')
+
+test('getLink Function exists', () => {
+  expect(getLink()).toBeDefined()
+})
 
 test('URL should be https://github.com/Graviton-Code-Editor/Graviton-App/releases', () => {
   expect(getLink()).toBe('https://github.com/Graviton-Code-Editor/Graviton-App/releases')
+})
+
+test('getGithubInfo Function exists', () => {
+  expect(getGithubInfo()).toBeDefined()
 })
 
 test('Name of github Repository should be  Graviton-Code-Editor/Graviton-App', () => {
@@ -17,6 +30,20 @@ test('Name of github Repository should be  Graviton-Code-Editor/Graviton-App', (
   const gitHubName = ghrepo.name
   expect(gitHubName).toBe('Graviton-Code-Editor/Graviton-App')
 })
+
+test('getGravitonInfo Function exists', () => {
+  expect(getGravitonInfo()).toBeDefined()
+})
+
+test('Graviton property information should be correct', () => {
+  expect(getGravitonInfo()).toStrictEqual({ date: '200119', version: '1.11.0', state: 'Beta' })
+})
+
+// test('checkUpdates() should open Dialog if update found', () => {
+//   // const dialoggg = Dialog()
+//   // console.log(dialoggg)
+//   expect(checkUpdates()).toBe('Dialog Opened')
+// })
 
 // describe('update and getLink function', function () {
 //   it('Check update link', function () {

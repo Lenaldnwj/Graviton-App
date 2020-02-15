@@ -425,6 +425,3 @@ GravitonWindow.on("focus", function() {
 window.addEventListener("resize",function(){
   graviton.refreshEditors()
 })
-
-
-

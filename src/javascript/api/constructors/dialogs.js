@@ -26,7 +26,7 @@ closeDialog('my_dialog1'); //Close the dialog by passing the id
 
 */
 
-'use strict'
+// 'use strict'
 
 module.exports = {
   /**
