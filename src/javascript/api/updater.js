@@ -10,16 +10,14 @@ License > https://github.com/Graviton-Code-Editor/Graviton-App/blob/master/LICEN
 */
 'use strict'
 
-// function update () {
-//   let shell = new Promise(((resolve, reject) => {
-//     resolve(require("electron").shell)
-//   }))
-//   shell.then(() => {
-//     return shell.openExternal(
-//       getLink()
-//     )
-//   }).catch((error) => { console.log(error) })
-// }
+const { Dialog } = require('../api/constructors/dialogs')
+const { getTranslation } = require('../api/languages')
+
+const GravitonInfo = {
+  date: "200119",
+  version: "1.11.0",
+  state: "Beta"
+}
 
 function update () {
   let shell = require('electron').shell
@@ -41,18 +39,20 @@ function getGithubInfo () {
 }
 
 function getGravitonInfo () {
+  // console.log('non mock')
   return GravitonInfo
 }
 
 function checkUpdates () {
   const ghrepo = getGithubInfo()
+  console.log(ghrepo.releases())
   ghrepo.releases(function (err, res, body) {
     // console.log(res)
     const GravitonInfo = getGravitonInfo()
     if (!err) {
       if (res[0].tag_name !== GravitonInfo.version) {
-        console.log(res[0].tag_name + ' ' + GravitonInfo.version)
-        const dialog = new Dialog({
+        // console.log(res[0].tag_name + ' ' + GravitonInfo.version)
+        const dialog = Dialog({
           id: 'update',
           title: `<strong>${GravitonInfo.state}</strong> Update available!`,
           content: getTranslation('DetectedUpdateMessage') + ' ' + res[0].tag_name + '?',
@@ -64,7 +64,7 @@ function checkUpdates () {
             }
           }
         })
-        return dialog
+        return true
       }
       new Notification({
         title: 'Graviton',
