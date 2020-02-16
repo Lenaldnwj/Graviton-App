@@ -1,9 +1,4 @@
-// jest.unmock('../../../../src/javascript/api/updater')
-// const updater = require('../../../../src/javascript/api/updater')
-
-const { getLink, update, checkUpdates, getGithubInfo, getGravitonInfo } = require('../../../../src/javascript/api/updater')
-// getGravitonInfo = jest.fn()
-// const Dialog = require('../../../../src/javascript/api/constructors/dialogs').Dialog
+const { getLink, update, getGithubInfo, getGravitonInfo } = require('../../../../src/javascript/api/updater')
 
 jest.mock('../../../../src/javascript/api/updater')
 
@@ -38,13 +33,72 @@ describe('Updater Component', () => {
     expect(getGravitonInfo()).toStrictEqual({ date: '200119', version: '1.11.0', state: 'Beta' })
   })
 
-  // test('checkUpdates() should open Dialog if update found', () => {
-  //   // const dialoggg = Dialog()
-  //   // console.log(dialoggg)
-  //   expect(checkUpdates()).toBe('Dialog Opened')
-  // })
-})
+  test('checkUpdates() should open Dialog if update found', () => {
+    let testVal = ''
 
+    function getDialogStatus (result) {
+      testVal = result
+      return testVal
+    }
+
+    function checkUpdates () {
+      const ghrepo = getGithubInfo()
+      ghrepo.releases(function (err, res, body) {
+        // console.log(res)
+        const GravitonInfo = getGravitonInfo()
+        if (!err) {
+          if (res[0].tag_name !== GravitonInfo.version) {
+            getDialogStatus('Dialog Opened')
+            expect(testVal).toBe('Dialog Opened')
+            return
+          }
+        }
+        getDialogStatus('No Dialog Opened')
+        expect(testVal).toBe('No Dialog Opened')
+
+      })
+    }
+    checkUpdates()
+  })
+
+  test('checkUpdates() should not open Dialog if no update found', () => {
+    let testVal = ''
+
+    const incorrectGravitonInfo = {
+      date: "19028cvvck-",
+      version: "asla13",
+      state: "23k0"
+    }
+
+    function getIncorrectGravitonInfo () {
+      return incorrectGravitonInfo
+    }
+
+    function getDialogStatus (result) {
+      testVal = result
+      return testVal
+    }
+
+    function checkUpdates () {
+      const ghrepo = getGithubInfo()
+      ghrepo.releases(function (err, res, body) {
+        // console.log(res)
+        const GravitonInfo = getIncorrectGravitonInfo()
+        if (!err) {
+          if (res[0].tag_name !== GravitonInfo.version) {
+            getDialogStatus('Dialog Opened')
+            expect(testVal).toBe('Dialog Opened')
+            return
+          }
+        }
+        getDialogStatus('No Dialog Opened')
+        expect(testVal).toBe('No Dialog Opened')
+
+      })
+    }
+    checkUpdates()
+  })
+})
 // describe('update and getLink function', function () {
 //   it('Check update link', function () {
 //     const shell = require('electron').shell

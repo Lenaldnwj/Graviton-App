@@ -2,14 +2,15 @@
 
 // const Dialog = require('../constructors/dialogs').Dialog
 
-const GravitonInfo = {
+const correctGravitonInfo = {
   date: "200119",
   version: "1.11.0",
   state: "Beta"
 }
 
+
 function getGravitonInfo () {
-  return GravitonInfo
+  return correctGravitonInfo
 }
 
 function update () {
@@ -31,23 +32,48 @@ function getGithubInfo () {
   return ghrepo
 }
 
-let returnString = '';
-function checkUpdates () {
-  const ghrepo = getGithubInfo()
-  returnString = ghrepo.releases(function (err, res, body) {
-    console.log(res)
-    const GravitonInfo = getGravitonInfo()
-    if (!err) {
-      if (res[0].tag_name !== GravitonInfo.version) {
-        returnString = 'Dialog Opened'
-        return returnString
-      }
-      returnString = 'No Dialog Opened'
-      return returnString
-    }
-  })
-  return returnString
-}
+// let testVal = ''
+// function getDialogStatus (result) {
+//   testVal = result
+//   return testVal
+// }
+//
+// function checkUpdates () {
+//   const ghrepo = getGithubInfo()
+//   ghrepo.releases(function (err, res, body) {
+//     // console.log(res)
+//     const GravitonInfo = getGravitonInfo()
+//     if (!err) {
+//       if (res[0].tag_name !== GravitonInfo.version) {
+//         updateResult('Dialog Opened')
+//         return
+//       }
+//     }
+//     updateResult('No Dialog Opened')
+//   })
+// }
+
+// let testVal = ''
+// function updateResult (result) {
+//   testVal = result
+// }
+//
+// let returnString = '';
+// function checkUpdates () {
+//   const ghrepo = getGithubInfo()
+//   ghrepo.releases(function (err, res, body) {
+//     // console.log(res)
+//     const GravitonInfo = getGravitonInfo()
+//     if (!err) {
+//       if (res[0].tag_name !== GravitonInfo.version) {
+//         returnString = 'Dialog Opened'
+//         updateResult(returnString)
+//       }
+//       returnString = 'No Dialog Opened'
+//       updateResult(returnString)
+//     }
+//   })
+// }
 // const { puffin } = require('@mkenzo_8/puffin')
 
 // const puffin = {
@@ -152,7 +178,7 @@ module.exports = {
   getLink: getLink,
   update: update,
   getGithubInfo: getGithubInfo,
-  checkUpdates: checkUpdates,
+  // checkUpdates: checkUpdates,
+  // getDialogStatus: getDialogStatus,
   getGravitonInfo: getGravitonInfo,
-  // Dialog: Dialog,
 }
