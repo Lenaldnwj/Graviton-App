@@ -26,11 +26,11 @@ describe('Language/Translate Component', () => {
   })
 
   test('translateToLanguage return true upon successful translation', () => {
-    expect(translateToLanguage('english')).toBe(true)
+    expect(translateToLanguage('english')).toBeTruthy()
   })
 
   test('translateToLanguage return false upon unsuccessful translation', () => {
-    expect(translateToLanguage('hokkien')).toBe(false)
+    expect(translateToLanguage('hokkien')).toBeFalsy()
   })
 
   test('loadLanguage Function exists', () => {
