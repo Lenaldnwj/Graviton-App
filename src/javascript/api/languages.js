@@ -15,25 +15,31 @@ License > https://github.com/Graviton-Code-Editor/Graviton-App/blob/master/LICEN
  *
  */
 
-function loadLanguage(language) {
-  // console.log(language)
-  // console.log(languages)
-  languages.map((item, index) => {
-    // console.log(item.name + " " + index)
 
+function translateToLanguage (language) {
+  let returnFlag = false
+  console.log(language)
+  languages.map((item, index) => {
     if (item.name === language) {
       current_config.language = item
       const toTranslate = document.getElementsByClassName('translate_word')
       for (i = 0; i < toTranslate.length; i++) {
-        // console.log(toTranslate[i].getAttribute('idT'))
-
         toTranslate[i].innerText = getTranslation(
-        toTranslate[i].getAttribute('idT')
+          toTranslate[i].getAttribute('idT')
         )
       }
-      document.dispatchEvent(graviton.events.languageLoaded());
+      returnFlag = true
     }
   })
+  return returnFlag
+}
+
+function loadLanguage (language) {
+  // console.log('language: ' + language)
+  // console.log('languages: ' + JSON.stringify(languages, null, 2))
+  if (translateToLanguage(language) === true) {
+    document.dispatchEvent(graviton.events.languageLoaded());
+  }
 }
 //
 // function getLangArr () {
@@ -66,5 +72,6 @@ function getTranslation (text) {
 
 module.exports = {
   loadLanguage: loadLanguage,
-  getTranslation: getTranslation
+  getTranslation: getTranslation,
+  translateToLanguage: translateToLanguage,
 }

@@ -1,31 +1,44 @@
+// mocks
 let current_config = {
   language: 'english'
 }
 
 let french = require('../../../../languages/french')
 let italian = require('../../../../languages/italian')
+let english = require('../../../../languages/english')
 
 let languages = [
   french,
-  italian
+  italian,
+  english
 ]
 
-function loadLanguage (language) {
+// Gets translation from various JSON files of different language, apply selected language to Graviton
+function translateToLanguage (language) {
+  let returnFlag = false
+  console.log(language)
   languages.map((item, index) => {
-    // console.log(item.name + " " + index)
-
+    console.log('item name:language  ' + item.name + ' : ' + language)
     if (item.name === language) {
       current_config.language = item
       const toTranslate = document.getElementsByClassName('translate_word')
-      // console.log(toTranslate)
       for (i = 0; i < toTranslate.length; i++) {
         toTranslate[i].innerText = getTranslation(
           toTranslate[i].getAttribute('idT')
         )
       }
-      document.dispatchEvent(graviton.events.languageLoaded());
+      returnFlag = true
     }
   })
+  return returnFlag
+}
+
+function loadLanguage (language) {
+  // console.log('language: ' + language)
+  // console.log('languages: ' + JSON.stringify(languages, null, 2))
+  if (translateToLanguage(language) === true) {
+    document.dispatchEvent(graviton.events.languageLoaded());
+  }
 }
 
 function getFrenchLangArr () {
@@ -51,5 +64,6 @@ function getTranslation (text) {
 
 module.exports = {
   loadLanguage: loadLanguage,
-  getTranslation: getTranslation
+  getTranslation: getTranslation,
+  translateToLanguage: translateToLanguage
 }
