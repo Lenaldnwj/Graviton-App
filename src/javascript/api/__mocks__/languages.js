@@ -16,9 +16,9 @@ let languages = [
 // Gets translation from various JSON files of different language, apply selected language to Graviton
 function translateToLanguage (language) {
   let returnFlag = false
-  console.log(language)
+  // console.log(language)
   languages.map((item, index) => {
-    console.log('item name:language  ' + item.name + ' : ' + language)
+    // console.log('item name:language  ' + item.name + ' : ' + language)
     if (item.name === language) {
       current_config.language = item
       const toTranslate = document.getElementsByClassName('translate_word')
