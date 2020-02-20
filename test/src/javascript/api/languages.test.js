@@ -11,7 +11,7 @@ jest.mock('../../../../src/javascript/api/languages')
 
 describe('Language/Translate Component', () => {
 
-  test('getTranslation Function exists', () => {
+  test('getTranslation function should return a defined result', () => {
     expect(getTranslation).toBeDefined()
   })
 
@@ -21,7 +21,10 @@ describe('Language/Translate Component', () => {
     expect(getTranslation('ShowWelcome')).toBe('Afficher l’accueil')
   })
 
-  test('translateToLanguage Function exists', () => {
+  test('translateToLanguage should be a function', () => {
+    expect(typeof translateToLanguage).toBe('function')
+  })
+  test('translateToLanguage function should return a defined result', () => {
     expect(translateToLanguage).toBeDefined()
   })
 
@@ -33,7 +36,10 @@ describe('Language/Translate Component', () => {
     expect(translateToLanguage('hokkien')).toBeFalsy()
   })
 
-  test('loadLanguage Function exists', () => {
+  test('loadLanguage should be a function', () => {
+    expect(typeof loadLanguage).toBe('function')
+  })
+  test('loadLanguage function should return a defined result', () => {
     expect(loadLanguage).toBeDefined()
   })
 

@@ -7,7 +7,10 @@ jest.mock('../../../../src/javascript/api/updater')
 // const path = require('path')
 // const fs = require('fs')
 describe('Updater Component', () => {
-  test('getLink Function exists', () => {
+  test('getLink should be a function', () => {
+    expect(typeof getLink).toBe('function')
+  })
+  test('getLink function should return a defined result', () => {
     expect(getLink()).toBeDefined()
   })
 
@@ -15,7 +18,10 @@ describe('Updater Component', () => {
     expect(getLink()).toBe('https://github.com/Graviton-Code-Editor/Graviton-App/releases')
   })
 
-  test('getGithubInfo Function exists', () => {
+  test('getGithubInfo should be a function', () => {
+    expect(typeof getGithubInfo).toBe('function')
+  })
+  test('getGithubInfo function should return a defined result', () => {
     expect(getGithubInfo()).toBeDefined()
   })
 
@@ -25,7 +31,10 @@ describe('Updater Component', () => {
     expect(gitHubName).toBe('Graviton-Code-Editor/Graviton-App')
   })
 
-  test('getGravitonInfo Function exists', () => {
+  test('getGravitonInfo should be a function', () => {
+    expect(typeof getGravitonInfo).toBe('function')
+  })
+  test('getGravitonInfo function should return a defined result', () => {
     expect(getGravitonInfo()).toBeDefined()
   })
 
@@ -55,10 +64,11 @@ describe('Updater Component', () => {
         }
         getDialogStatus('No Dialog Opened')
         expect(testVal).toBe('No Dialog Opened')
-
       })
     }
+    expect(typeof checkUpdates).toBe('function')
     checkUpdates()
+
   })
 
   test('checkUpdates() should not open Dialog if no update found', () => {
