@@ -1,7 +1,10 @@
+const { saveFile, saveFileAs, openFile, openFolder} = require('../utils/filesystem')
+
 const graviton = {
     getCurrentTheme: function() {
       // Get the theme name of the applied theme
-      return themeObject.name;
+      // console.log(themeObject)
+      return themeObject.name
     },
     getSelectedText: function() {
       // Get te text you have selected
@@ -480,7 +483,7 @@ const graviton = {
       return terminal;
     },
     getUILanguage(){
-      return current_config.language.name
+      return current_config.language
     },
     getLanguage() {
       if (graviton.getCurrentFile().path == null) {
