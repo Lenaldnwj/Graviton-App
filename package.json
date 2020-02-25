@@ -14,6 +14,10 @@
     "open source",
     "modern"
   ],
+  "jest": {
+    "verbose": true,
+
+  },
   "scripts": {
     "start": "run-p watch:sass start:electron ",
     "start:no.sandbox": "electron . Graviton --no-sandbox",
@@ -32,7 +36,8 @@
     "build:win:linux": "npm run compile:sass && npx electron-builder build --linux && build --win ",
     "rebuild": "npm run compile:sass && electron-rebuild -f -w node-pty",
     "standard": "standard --fix",
-    "test": "jest --verbose"
+    "test": "jest",
+    "test-coverage": "jest --coverage"
   },
   "standard": {
     "ignore": [
