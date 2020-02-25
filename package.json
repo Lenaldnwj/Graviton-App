@@ -16,7 +16,15 @@
   ],
   "jest": {
     "verbose": true,
-
+    "collectCoverageFrom": [
+      "src/javascript/api/updater.js"
+    ],
+    "coverageThreshold": {
+      "src/javascript/api/updater.js": {
+        "functions": 40,
+        "statements": 40
+      }
+    }
   },
   "scripts": {
     "start": "run-p watch:sass start:electron ",
@@ -36,8 +44,8 @@
     "build:win:linux": "npm run compile:sass && npx electron-builder build --linux && build --win ",
     "rebuild": "npm run compile:sass && electron-rebuild -f -w node-pty",
     "standard": "standard --fix",
-    "test": "jest",
-    "test-coverage": "jest --coverage"
+    "test": "jest --runInBand --detectOpenHandles",
+    "test-coverage": "jest --coverage --runInBand --detectOpenHandles"
   },
   "standard": {
     "ignore": [

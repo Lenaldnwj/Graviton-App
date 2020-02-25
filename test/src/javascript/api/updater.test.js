@@ -1,12 +1,24 @@
 const { getLink, update, getGithubInfo, getGravitonInfo } = require('../../../../src/javascript/api/updater')
 
-jest.mock('../../../../src/javascript/api/updater')
+// jest.mock('../../../../src/javascript/api/updater')
 
 // const Application = require('spectron').Application
 // const electronPath = require('electron')
 // const path = require('path')
 // const fs = require('fs')
+let shell = require('electron').shell
+
 describe('Updater Component', () => {
+  test('update should be a function', () => {
+    expect(typeof update).toBe('function')
+  })
+  // test('update function should return a defined result', () => {
+  //   expect(update()).toBeDefined()
+  // })
+  //
+  // test('update function should return true', () => {
+  //   expect(update()).toBeTruthy()
+  // })
   test('getLink should be a function', () => {
     expect(typeof getLink).toBe('function')
   })
@@ -23,6 +35,12 @@ describe('Updater Component', () => {
   })
   test('getGithubInfo function should return a defined result', () => {
     expect(getGithubInfo()).toBeDefined()
+  })
+  test('getGithubInfo function should return ghrepo', () => {
+    const github = require('octonode')
+    const client = github.client()
+    const ghrepo = client.repo('Graviton-Code-Editor/Graviton-App')
+    expect(JSON.stringify(getGithubInfo())).toBe(JSON.stringify(ghrepo))
   })
 
   test('Name of github Repository should be  Graviton-Code-Editor/Graviton-App', () => {
