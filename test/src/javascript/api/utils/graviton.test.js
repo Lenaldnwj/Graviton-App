@@ -2,7 +2,7 @@ const graviton = require('../../../../../src/javascript/api/utils/graviton')
 jest.mock('../../../../../src/javascript/api/utils/graviton')
 
 
-describe('Graviton Utility Component', () => {
+describe('Test Graviton Utility Component', () => {
   let current_config = {
     justInstalled: true,
     theme: "Dark",

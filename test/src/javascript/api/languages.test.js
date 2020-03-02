@@ -9,7 +9,7 @@ jest.mock('../../../../src/javascript/api/languages')
 //   italian
 // ]
 
-describe('Language/Translate Component', () => {
+describe('Test Language/Translate Component', () => {
 
   test('getTranslation function should return a defined result', () => {
     expect(getTranslation).toBeDefined()

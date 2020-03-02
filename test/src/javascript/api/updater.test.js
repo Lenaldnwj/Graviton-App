@@ -8,7 +8,7 @@ const { getLink, update, getGithubInfo, getGravitonInfo } = require('../../../..
 // const fs = require('fs')
 let shell = require('electron').shell
 
-describe('Updater Component', () => {
+describe('Test Updater Component', () => {
   test('update should be a function', () => {
     expect(typeof update).toBe('function')
   })

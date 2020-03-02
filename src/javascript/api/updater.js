@@ -21,7 +21,8 @@ const GravitonInfo = {
 
 function update () {
   let shell = require('electron').shell
-  return shell.openExternal(getLink())
+  shell.openExternal(getLink())
+  return true
 }
 
 function getLink () {

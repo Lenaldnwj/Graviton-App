@@ -1,6 +1,6 @@
 const { Notification ,closeNotification } = require('../../../../../src/javascript/api/constructors/notifications')
 
-describe('Notification Component', () => {
+describe('Test Notification Component', () => {
   test('closeNotification function should return a defined result', () => {
     expect(closeNotification).toBeDefined()
   })
