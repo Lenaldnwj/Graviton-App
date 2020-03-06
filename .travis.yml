@@ -1,6 +1,0 @@
-language: node_js
-
-os: osx
-
-before_script:
-  - npm install -g windows-build-tools
