@@ -2,9 +2,27 @@ version: 2.1
 orbs:
   node: circleci/node@1.1.6
 jobs:
-  build-and-test:
+  build-and-test-windows:
     executor:
-      name: node/default
+      name: win/vs2019
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: npm install
+            - run: npm test
+  build-and-test-macos:
+    macos:
+      xcode: 11.0.0
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: npm install
+            - run: npm test
+  build-and-test-linux:
+    docker:
+      - image: fpco/stack-build:lts
     steps:
       - checkout
       - node/with-cache:
@@ -14,4 +32,6 @@ jobs:
 workflows:
     build-and-test:
       jobs:
-        - build-and-test
+        - build-and-test-windows
+        - build-and-test-macos
+        - build-and-test-linux
