@@ -66,6 +66,7 @@
     "light-sanitize-html": "^1.0.2",
     "marked": "^0.7.0",
     "node-fetch": "^2.6.0",
+    "node-pty": "^0.9.0",
     "npm": "^6.13.4",
     "octonode": "^0.9.5",
     "rimraf": "^2.7.1",
