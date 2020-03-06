@@ -1,1 +1,4 @@
 language: node_js
+
+before_script:
+  -npm --global --production install windows-build-tools
