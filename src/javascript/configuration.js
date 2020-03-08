@@ -534,3 +534,7 @@ graviton.saveConfiguration = function(){
 
 const saveConfig = graviton.saveConfiguration; //Prevent API problems
 const loadConfig = graviton.loadConfiguration; //Prevent API problems
+
+module.exports = {
+  current_config: current_config
+}
