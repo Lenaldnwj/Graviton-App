@@ -9,13 +9,6 @@ jobs:
       - checkout
       - run: npm install
       - run: npm test
-  build-and-test-macos:
-    macos:
-      xcode: 11.0.0
-    steps:
-      - checkout
-      - run: npm install
-      - run: npm test
   build-and-test-linux:
     docker:
       - image: fpco/stack-build:lts
@@ -27,5 +20,4 @@ workflows:
     build-and-test:
       jobs:
         - build-and-test-windows
-        - build-and-test-macos
-        - build-and-test-linux
+        - build-and-test-linuxMac
