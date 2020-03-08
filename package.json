@@ -17,7 +17,8 @@
   "jest": {
     "verbose": true,
     "collectCoverageFrom": [
-      "src/javascript/api/updater.js"
+      "src/javascript/api/updater.js",
+      "src/javascript/api/languages.js"
     ],
     "coverageThreshold": {
       "src/javascript/api/updater.js": {
