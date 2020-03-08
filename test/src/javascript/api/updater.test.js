@@ -1,4 +1,4 @@
-const { getLink, update, getGithubInfo, getGravitonInfo } = require('../../../../src/javascript/api/updater')
+const { getLink, getGithubInfo, getGravitonInfo } = require('../../../../src/javascript/api/updater')
 
 // jest.mock('../../../../src/javascript/api/updater')
 
@@ -9,9 +9,9 @@ const { getLink, update, getGithubInfo, getGravitonInfo } = require('../../../..
 let shell = require('electron').shell
 
 describe('Test Updater Component', () => {
-  test('update should be a function', () => {
-    expect(typeof update).toBe('function')
-  })
+  // test('update should be a function', () => {
+  //   expect(typeof update).toBe('function')
+  // })
   // test('update function should return a defined result', () => {
   //   expect(update()).toBeDefined()
   // })

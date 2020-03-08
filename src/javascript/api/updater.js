@@ -12,6 +12,7 @@ License > https://github.com/Graviton-Code-Editor/Graviton-App/blob/master/LICEN
 
 const { Dialog } = require('../api/constructors/dialogs')
 const { getTranslation } = require('../api/languages')
+let shell = require('electron').shell
 
 const GravitonInfo = {
   date: "200119",
@@ -19,11 +20,11 @@ const GravitonInfo = {
   state: "Beta"
 }
 
-function update () {
-  let shell = require('electron').shell
-  shell.openExternal(getLink())
-  return true
-}
+// function update () {
+//   let shell = require('electron').shell
+//   shell.openExternal(getLink())
+//   return true
+// }
 
 function getLink () {
   return 'https://github.com/Graviton-Code-Editor/Graviton-App/releases'
@@ -46,7 +47,7 @@ function getGravitonInfo () {
 
 function checkUpdates () {
   const ghrepo = getGithubInfo()
-  console.log(ghrepo.releases())
+  // console.log(ghrepo.releases())
   ghrepo.releases(function (err, res, body) {
     // console.log(res)
     const GravitonInfo = getGravitonInfo()
@@ -60,7 +61,7 @@ function checkUpdates () {
           buttons: {
             [getTranslation('No')]: {},
             [getTranslation('Yes')]: {
-              click: () => update(),
+              click: () => shell.openExternal(getLink()),
               important: true
             }
           }
@@ -77,7 +78,7 @@ function checkUpdates () {
 
 module.exports = {
   getLink: getLink,
-  update: update,
+  // update: update,
   getGithubInfo: getGithubInfo,
   checkUpdates: checkUpdates,
   getGravitonInfo: getGravitonInfo,
