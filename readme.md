@@ -4,7 +4,7 @@
    <a href="https://graviton.ml">graviton.ml</a>
 </p>
 
-[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2FGraviton-Code-Editor%2FGraviton-App%2Fbadge%3Fref%3Dmaster&style=flat)](https://actions-badge.atrox.dev/Graviton-Code-Editor/Graviton-App/goto?ref=master)
+[![CircleCI](https://circleci.com/gh/Lenaldnwj/Graviton-App.svg?style=shield)](https://circleci.com/gh/Lenaldnwj/Graviton-App)
 [![HitCount](http://hits.dwyl.io/https://github.com/marc2332/https://github.com/Graviton-Code-Editor/Graviton-App.svg)](http://hits.dwyl.io/https://github.com/marc2332/https://github.com/Graviton-Code-Editor/Graviton-App)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/Graviton-Code-Editor/Graviton-App/blob/master/LICENSE.md)
 ![GitHub All Releases](https://img.shields.io/github/downloads/Graviton-Code-Editor/Graviton-App/total.svg?style=plastic)
@@ -16,7 +16,6 @@
 
 ![example screenshot](example.png)
 
-**IMPORTANT: Changes on this source may not be released as an official build yet.**
 
 ✨ Highlights:
 ---
@@ -77,6 +76,8 @@ Please consider revising and updating your languages in case they are missing so
 * LucasAlt [Github](https://github.com/LucasCtrl)
 * Max1Truc [Github](https://github.com/Max1Truc)
 
+#### Testers:
+* Lenald [Github](https://github.com/lenaldnwj)
 
 #### Credits:
 * Miguel Ranger for first autocomplete version
