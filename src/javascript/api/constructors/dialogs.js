@@ -111,25 +111,20 @@ function Dialog ({ id = Math.random(), title, content, buttons }) {
   }
 }
 
+function reduceWinCount () {
+  // console.log(Number(document.getElementById('body').getAttribute('windows')) - 1)
+  document.getElementById('body').setAttribute('windows',Number(document.getElementById('body').getAttribute('windows')) - 1)
+}
+
 /**
  * Close a dialog
  * @param {HTML element} ele  DOM element
  */
 
 function closeDialog (id) {
-  // console.log(id)
-  //
-  // console.log(document.getElementById(id + '_dialog'))
-  if(removeDialogEle (id)){
-    // removeDialogEle(id)
-    console.log(Number(document.getElementById('body').getAttribute('windows')) - 1)
-    // document.getElementById(id + '_dialog').remove()
-    document
-      .getElementById('body')
-      .setAttribute(
-        'windows',
-        Number(document.getElementById('body').getAttribute('windows')) - 1
-      )
+  if (removeDialogEle(id)) {
+    reduceWinCount()
+    return true
   }
   return false
 }
@@ -146,5 +141,6 @@ module.exports = {
   Dialog: Dialog,
   closeDialog: closeDialog,
   animationStatus: animationStatus,
-  removeDialogEle: removeDialogEle
+  removeDialogEle: removeDialogEle,
+  reduceWinCount: reduceWinCount
 }
