@@ -100,20 +100,19 @@ function Dialog ({ id = Math.random(), title, content, buttons }) {
   })
 
   puffin.render(dialogComponent,document.getElementById("windows"))
-  document
-    .getElementById('body')
-    .setAttribute(
-      'windows',
-      Number(document.getElementById('body').getAttribute('windows')) + 1
-    )
-  this.close = function () {
-    closeDialog(this.id)
-  }
+  increaseWinCount()
+  // this.close = function () {
+  //   closeDialog(this.id)
+  // }
 }
 
 function reduceWinCount () {
   // console.log(Number(document.getElementById('body').getAttribute('windows')) - 1)
-  document.getElementById('body').setAttribute('windows',Number(document.getElementById('body').getAttribute('windows')) - 1)
+  document.getElementById('body').setAttribute('windows', Number(document.getElementById('body').getAttribute('windows')) - 1)
+}
+
+function increaseWinCount () {
+  document.getElementById('body').setAttribute('windows', Number(document.getElementById('body').getAttribute('windows')) + 1)
 }
 
 /**
@@ -142,5 +141,6 @@ module.exports = {
   closeDialog: closeDialog,
   animationStatus: animationStatus,
   removeDialogEle: removeDialogEle,
-  reduceWinCount: reduceWinCount
+  reduceWinCount: reduceWinCount,
+  increaseWinCount: increaseWinCount
 }
