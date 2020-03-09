@@ -107,4 +107,28 @@ describe('Test Dialogs Component', () => {
     expect(attribute).toBe('4')
   })
 
+  test('closeDialog should be a function', () => {
+    expect(typeof closeDialog).toBe('function')
+  })
+  test('closeDialog function should return a defined result', () => {
+    expect(closeDialog).toBeDefined()
+  })
+  test('closeDialog should return true if element removed and attribute mutated ', () => {
+
+    var htmlElement
+    htmlElement = document.createElement('div')
+    htmlElement.setAttribute('id', '3_dialog')
+    htmlElement.innerHTML = 'lul'
+    document.body.appendChild(htmlElement)
+    expect(closeDialog(3)).toBeTruthy()
+  })
+  test('closeDialog should return false if element id do not exist', () => {
+
+    var htmlElement
+    htmlElement = document.createElement('div')
+    htmlElement.setAttribute('id', '3_dialog')
+    htmlElement.innerHTML = 'lul'
+    document.body.appendChild(htmlElement)
+    expect(closeDialog(1)).toBeFalsy()
+  })
 })
