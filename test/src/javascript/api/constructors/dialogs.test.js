@@ -1,4 +1,4 @@
-const { animationStatus, closeDialog, removeDialogEle } = require('../../../../../src/javascript/api/constructors/dialogs')
+const { animationStatus, closeDialog, removeDialogEle, reduceWinCount } = require('../../../../../src/javascript/api/constructors/dialogs')
 
 describe('Test Dialogs Component', () => {
 
@@ -87,5 +87,24 @@ describe('Test Dialogs Component', () => {
     expect(removeDialogEle(10)).toBeFalsy()
   })
 
+  test('reduceWinCount should be a function', () => {
+    expect(typeof reduceWinCount).toBe('function')
+  })
+  test('reduceWinCount function should return a defined result', () => {
+    expect(reduceWinCount).toBeDefined()
+  })
+
+  test('reduceWinCount should reduce window attribute of element by 1', () => {
+    var htmlElement
+    htmlElement = document.createElement('div')
+    htmlElement.setAttribute('id', 'body')
+    htmlElement.setAttribute('windows', '5')
+    htmlElement.innerHTML = 'placeholder text'
+
+    document.body.appendChild(htmlElement)
+    reduceWinCount()
+    var attribute = document.getElementById('body').getAttribute('windows')
+    expect(attribute).toBe('4')
+  })
 
 })
