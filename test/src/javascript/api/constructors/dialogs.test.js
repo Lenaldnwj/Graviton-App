@@ -106,6 +106,13 @@ describe('Test Dialogs Component', () => {
     expect(attribute).toBe('11')
   })
 
+  test('increaseWinCount should be a function', () => {
+    expect(typeof increaseWinCount).toBe('function')
+  })
+  test('increaseWinCount function should return a defined result', () => {
+    expect(increaseWinCount).toBeDefined()
+  })
+
   test('increaseWinCount should increase window attribute of element by 1', () => {
     document.getElementById('body').removeAttribute('windows')
     var htmlEle
