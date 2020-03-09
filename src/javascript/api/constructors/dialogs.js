@@ -37,6 +37,14 @@ function animationStatus (config) {
   return status
 }
 
+// function diagError (args) {
+//   if (typeof [...args] !== 'object') {
+//     graviton.throwError('Parsed argument is not object.')
+//     return true
+//   }
+//   return false
+// }
+
 /**
  * Dialog constructor
  * @param {string} id       Dialog's id
@@ -48,10 +56,13 @@ function animationStatus (config) {
 function Dialog ({ id = Math.random(), title, content, buttons }) {
   // console.log(id + ' lul   ' + title)
   this.id = id
-  if (typeof [...arguments] !== 'object') {
-    graviton.throwError('Parsed argument is not object.')
-    return
-  }
+  // if (diagError (...arguments)){
+  //   return
+  // }
+  // if (typeof [...arguments] !== 'object') {
+  //   graviton.throwError('Parsed argument is not object.')
+  //   return
+  // }
   let { current_config } = require('../../configuration')
   // console.log(current_config)
   const openingAnimation = animationStatus(current_config)
@@ -129,7 +140,7 @@ function closeDialog (id) {
 }
 
 function removeDialogEle (id) {
-  if(document.getElementById(id + '_dialog') !=null) {
+  if (document.getElementById(id + '_dialog') !=null) {
     document.getElementById(id + '_dialog').remove()
     return true
   }
@@ -142,5 +153,5 @@ module.exports = {
   animationStatus: animationStatus,
   removeDialogEle: removeDialogEle,
   reduceWinCount: reduceWinCount,
-  increaseWinCount: increaseWinCount
+  increaseWinCount: increaseWinCount,
 }

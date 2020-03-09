@@ -152,4 +152,14 @@ describe('Test Dialogs Component', () => {
     document.body.appendChild(htmlElement)
     expect(closeDialog(1)).toBeFalsy()
   })
+
+  // test('args true', () => {
+  //   diagError({ name: 'Graviton', version: 3 })
+  //   expect(diagError).toBeTruthy()
+  // })
+  // test('args false', () => {
+  //   diagError(1, 2)
+  //   expect(diagError).toBeFalsy()
+  // })
+
 })
