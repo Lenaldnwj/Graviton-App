@@ -33,7 +33,7 @@ closeDialog('my_dialog1'); //Close the dialog by passing the id
 function animationStatus (config) {
   let status
   status = config.animationsPreferences == 'activated' ? `window_slide_up linear 0.1s;` : ''
-  console.log(status)
+  // console.log(status)
   return status
 }
 
@@ -46,7 +46,7 @@ function animationStatus (config) {
  */
 
 function Dialog ({ id = Math.random(), title, content, buttons }) {
-  console.log(id + ' lul   ' + title)
+  // console.log(id + ' lul   ' + title)
   this.id = id
   if (typeof [...arguments] !== 'object') {
     graviton.throwError('Parsed argument is not object.')
@@ -117,8 +117,13 @@ function Dialog ({ id = Math.random(), title, content, buttons }) {
  */
 
 function closeDialog (id) {
-  if(document.getElementById(id + '_dialog') !=null){
-    document.getElementById(id + '_dialog').remove()
+  // console.log(id)
+  //
+  // console.log(document.getElementById(id + '_dialog'))
+  if(removeDialogEle (id)){
+    // removeDialogEle(id)
+    console.log(Number(document.getElementById('body').getAttribute('windows')) - 1)
+    // document.getElementById(id + '_dialog').remove()
     document
       .getElementById('body')
       .setAttribute(
@@ -126,10 +131,20 @@ function closeDialog (id) {
         Number(document.getElementById('body').getAttribute('windows')) - 1
       )
   }
+  return false
+}
+
+function removeDialogEle (id) {
+  if(document.getElementById(id + '_dialog') !=null) {
+    document.getElementById(id + '_dialog').remove()
+    return true
+  }
+  return false
 }
 
 module.exports = {
   Dialog: Dialog,
   closeDialog: closeDialog,
-  animationStatus: animationStatus
+  animationStatus: animationStatus,
+  removeDialogEle: removeDialogEle
 }
