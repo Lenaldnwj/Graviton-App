@@ -1,7 +1,6 @@
-const { animationStatus, closeDialog, removeDialogEle, reduceWinCount } = require('../../../../../src/javascript/api/constructors/dialogs')
+const { animationStatus, closeDialog, removeDialogEle, reduceWinCount, increaseWinCount } = require('../../../../../src/javascript/api/constructors/dialogs')
 
 describe('Test Dialogs Component', () => {
-
   test('animationStatus should be a function', () => {
     expect(typeof animationStatus).toBe('function')
   })
@@ -98,13 +97,28 @@ describe('Test Dialogs Component', () => {
     var htmlElement
     htmlElement = document.createElement('div')
     htmlElement.setAttribute('id', 'body')
-    htmlElement.setAttribute('windows', '5')
+    htmlElement.setAttribute('windows', '12')
     htmlElement.innerHTML = 'placeholder text'
 
     document.body.appendChild(htmlElement)
     reduceWinCount()
     var attribute = document.getElementById('body').getAttribute('windows')
-    expect(attribute).toBe('4')
+    expect(attribute).toBe('11')
+  })
+
+  test('increaseWinCount should increase window attribute of element by 1', () => {
+    document.getElementById('body').removeAttribute('windows')
+    var htmlEle
+    htmlEle = document.createElement('div')
+    htmlEle.setAttribute('id', 'body')
+    htmlEle.setAttribute('windows', '0')
+    htmlEle.innerHTML = 'placeholder text'
+
+    document.body.appendChild(htmlEle)
+    // console.log(htmlElement.getAttribute('windows'))
+    increaseWinCount()
+    var attribute = document.getElementById('body').getAttribute('windows')
+    expect(attribute).toBe('1')
   })
 
   test('closeDialog should be a function', () => {
