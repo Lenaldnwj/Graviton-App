@@ -18,7 +18,8 @@
     "verbose": true,
     "collectCoverageFrom": [
       "src/javascript/api/updater.js",
-      "src/javascript/api/languages.js"
+      "src/javascript/api/languages.js",
+      "src/javascript/api/constructors/dialogs.js"
     ],
     "coverageThreshold": {
       "src/javascript/api/updater.js": {
