@@ -1,4 +1,4 @@
-const { animationStatus, closeDialog, removeDialogEle, reduceWinCount, increaseWinCount } = require('../../../../../src/javascript/api/constructors/dialogs')
+const { animationStatus, closeDialog, removeDialogEle, reduceWinCount, increaseWinCount, checkDiagNum } = require('../../../../../src/javascript/api/constructors/dialogs')
 
 describe('Test Dialogs Component', () => {
   test('animationStatus should be a function', () => {
@@ -33,7 +33,7 @@ describe('Test Dialogs Component', () => {
     var htmlElement
     htmlElement = document.createElement('div')
     htmlElement.setAttribute('id', '3_dialog')
-    htmlElement.innerHTML = 'lul'
+    htmlElement.innerHTML = 'placeholder'
     document.body.appendChild(htmlElement)
 
     removeDialogEle(3)
@@ -42,7 +42,7 @@ describe('Test Dialogs Component', () => {
 
     // closeDialog ('1')
     // expect(document.getElementById('1_dialog')).not.toBeDefined()
-    // expect(document.getElementById('1_dialog').innerHTML).toBe('lul')
+    // expect(document.getElementById('1_dialog').innerHTML).toBe('placeholder')
   })
 
   test('removeDialogEle should remove element', () => {
@@ -50,7 +50,7 @@ describe('Test Dialogs Component', () => {
     var htmlElement
     htmlElement = document.createElement('div')
     htmlElement.setAttribute('id', '3_dialog')
-    htmlElement.innerHTML = 'lul'
+    htmlElement.innerHTML = 'placeholder'
     document.body.appendChild(htmlElement)
 
     removeDialogEle(3)
@@ -63,7 +63,7 @@ describe('Test Dialogs Component', () => {
     var htmlElement
     htmlElement = document.createElement('div')
     htmlElement.setAttribute('id', '4_dialog')
-    htmlElement.innerHTML = 'lul'
+    htmlElement.innerHTML = 'placeholder'
     document.body.appendChild(htmlElement)
 
     expect(removeDialogEle(4)).toBeTruthy()
@@ -74,7 +74,7 @@ describe('Test Dialogs Component', () => {
     var htmlElement
     htmlElement = document.createElement('div')
     htmlElement.setAttribute('id', '80_dialog')
-    htmlElement.innerHTML = 'lul'
+    htmlElement.innerHTML = 'placeholder'
     document.body.appendChild(htmlElement)
 
     removeDialogEle(10)
@@ -139,7 +139,7 @@ describe('Test Dialogs Component', () => {
     var htmlElement
     htmlElement = document.createElement('div')
     htmlElement.setAttribute('id', '3_dialog')
-    htmlElement.innerHTML = 'lul'
+    htmlElement.innerHTML = 'placeholder'
     document.body.appendChild(htmlElement)
     expect(closeDialog(3)).toBeTruthy()
   })
@@ -148,18 +148,35 @@ describe('Test Dialogs Component', () => {
     var htmlElement
     htmlElement = document.createElement('div')
     htmlElement.setAttribute('id', '3_dialog')
-    htmlElement.innerHTML = 'lul'
+    htmlElement.innerHTML = 'placeholder'
     document.body.appendChild(htmlElement)
     expect(closeDialog(1)).toBeFalsy()
   })
 
-  // test('args true', () => {
-  //   diagError({ name: 'Graviton', version: 3 })
-  //   expect(diagError).toBeTruthy()
-  // })
-  // test('args false', () => {
-  //   diagError(1, 2)
-  //   expect(diagError).toBeFalsy()
-  // })
+  test('checkDiagNum should return false if number is not between 0 and 5 inclusive', () => {
 
+    // var htmlElement
+    // htmlElement = document.createElement('div')
+    // htmlElement.setAttribute('id', 'body')
+    // htmlElement.setAttribute('windows', '6')
+    // htmlElement.innerHTML = 'placeholder'
+    // document.body.appendChild(htmlElement)
+    // expect(checkDiagNum(Number(document.getElementById('body').getAttribute('windows')))).toBeFalsy()
+    expect(checkDiagNum(6)).toBeFalsy()
+    expect(checkDiagNum(-1)).toBeFalsy()
+  })
+
+  test('checkDiagNum should return true if number is between 0 and 5 inclusive', () => {
+
+    // var htmlElement
+    // htmlElement = document.createElement('div')
+    // htmlElement.setAttribute('id', 'body')
+    // htmlElement.setAttribute('windows', '0')
+    // htmlElement.innerHTML = 'placeholder'
+    // document.body.appendChild(htmlElement)
+    // expect(checkDiagNum(Number(document.getElementById('body').getAttribute('windows')))).toBeTruthy()
+    expect(checkDiagNum(0)).toBeTruthy()
+    expect(checkDiagNum(5)).toBeTruthy()
+  })
+  
 })

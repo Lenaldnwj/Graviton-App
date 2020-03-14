@@ -117,6 +117,12 @@ function Dialog ({ id = Math.random(), title, content, buttons }) {
   // }
 }
 
+function checkDiagNum (number) {
+  return number >= 0 && number <= 5
+
+
+}
+
 function reduceWinCount () {
   // console.log(Number(document.getElementById('body').getAttribute('windows')) - 1)
   document.getElementById('body').setAttribute('windows', Number(document.getElementById('body').getAttribute('windows')) - 1)
@@ -132,6 +138,7 @@ function increaseWinCount () {
  */
 
 function closeDialog (id) {
+  var flag = checkDiagNum(Number(document.getElementById('body').getAttribute('windows')))
   if (removeDialogEle(id)) {
     reduceWinCount()
     return true
@@ -154,4 +161,5 @@ module.exports = {
   removeDialogEle: removeDialogEle,
   reduceWinCount: reduceWinCount,
   increaseWinCount: increaseWinCount,
+  checkDiagNum: checkDiagNum
 }
