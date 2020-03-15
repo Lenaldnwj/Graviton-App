@@ -36,8 +36,25 @@ function getGithubInfo () {
   const client = github.client()
   // console.log(client)
   const ghrepo = client.repo('Graviton-Code-Editor/Graviton-App')
-  // console.log(ghrepo)
   return ghrepo
+}
+
+function updateValidity (gVersion, gDate, gState) {
+  const version = GravitonInfo.version, date = GravitonInfo.date, state = GravitonInfo.state
+  // var result
+  // const github = require('octonode')
+  // // console.log(github)
+  // const client = github.client()
+  // // console.log(client)
+  // const ghrepo = client.repo('Graviton-Code-Editor/Graviton-App')
+  // ghrepo.releases(function (err, res, body) {
+  //   result = res[0]
+  // })
+  // console.log('lullulululu')
+  // console.log(result.tag_name)
+
+  return version < gVersion && date < gDate && state === gState
+
 }
 
 function getGravitonInfo () {
@@ -48,12 +65,15 @@ function getGravitonInfo () {
 function checkUpdates () {
   const ghrepo = getGithubInfo()
   // console.log(ghrepo.releases())
+  updateValidity(GravitonInfo.version, GravitonInfo.date, GravitonInfo.state)
+
   ghrepo.releases(function (err, res, body) {
     // console.log(res)
     const GravitonInfo = getGravitonInfo()
     if (!err) {
       if (res[0].tag_name !== GravitonInfo.version) {
-        // console.log(res[0].tag_name + ' ' + GravitonInfo.version)
+        console.log(res[0].tag_name + ' ' + GravitonInfo.version)
+        // console.log(JSON.stringify(res[0],null, 2) + ' ' + JSON.stringify(GravitonInfo,null, 2))
         const dialog = Dialog({
           id: 'update',
           title: `<strong>${GravitonInfo.state}</strong> Update available!`,
@@ -78,7 +98,7 @@ function checkUpdates () {
 
 module.exports = {
   getLink: getLink,
-  // update: update,
+  updateValidity: updateValidity,
   getGithubInfo: getGithubInfo,
   checkUpdates: checkUpdates,
   getGravitonInfo: getGravitonInfo,

@@ -1,4 +1,4 @@
-const { getLink, getGithubInfo, getGravitonInfo } = require('../../../../src/javascript/api/updater')
+const { getLink, getGithubInfo, getGravitonInfo, updateValidity } = require('../../../../src/javascript/api/updater')
 
 // jest.mock('../../../../src/javascript/api/updater')
 
@@ -126,6 +126,25 @@ describe('Test Updater Component', () => {
     }
     checkUpdates()
   })
+
+  test('updateValidity should be a function', () => {
+    expect(typeof updateValidity).toBe('function')
+  })
+  test('updateValidity function should return a defined result', () => {
+    expect(updateValidity()).toBeDefined()
+  })
+
+  test('updateValidity function should return a true if Client version < Latest version,' +
+    'Client date < Latest date, Client state = Latest state (Case 8)', () => {
+    const GravitonInfo = {
+      date: "200219",
+      version: "1.13.0",
+      state: "Beta"
+    }
+
+    expect(updateValidity(GravitonInfo.version, GravitonInfo.date, GravitonInfo.state)).toBeTruthy()
+  })
+
 })
 // describe('update and getLink function', function () {
 //   it('Check update link', function () {
