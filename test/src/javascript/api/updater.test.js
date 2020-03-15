@@ -134,17 +134,37 @@ describe('Test Updater Component', () => {
     expect(updateValidity()).toBeDefined()
   })
 
-  test('updateValidity function should return a true if Client version < Latest version,' +
+  test('updateValidity function should return true if Client version < Latest version,' +
     'Client date < Latest date, Client state = Latest state (Case 8)', () => {
     const GravitonInfo = {
       date: "200219",
       version: "1.13.0",
       state: "Beta"
     }
-
     expect(updateValidity(GravitonInfo.version, GravitonInfo.date, GravitonInfo.state)).toBeTruthy()
   })
 
+  test('updateValidity function should return false for case 1, 2, 3, 4, 5, 6, 7', () => {
+    const GravitonInfo = {
+      date: "200119",
+      version: "1.11.0",
+      state: "Beta"
+    }
+    // Case 1
+    expect(updateValidity('1.11.0', '200219', 'Alpha')).toBeFalsy()
+    // Case 2
+    expect(updateValidity('1.11.0', '200219', 'Beta')).toBeFalsy()
+    // Case 3
+    expect(updateValidity('1.11.0', '200219', 'Beta')).toBeFalsy()
+    // Case 4
+    expect(updateValidity('1.11.0', '200219', 'Beta')).toBeFalsy()
+    // Case 5
+    expect(updateValidity('1.11.0', '200219', 'Alpha')).toBeFalsy()
+    // Case 6
+    expect(updateValidity('1.11.0', '200219', 'Alpha')).toBeFalsy()
+    // Case 7
+    expect(updateValidity('1.11.0', '200219', 'Alpha')).toBeFalsy()
+  })
 })
 // describe('update and getLink function', function () {
 //   it('Check update link', function () {
