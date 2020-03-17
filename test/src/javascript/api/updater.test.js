@@ -178,6 +178,7 @@ describe('Test Updater Component', () => {
       version: "1.13.0",
       state: "Beta"
     }
+    //Case 8
     expect(updateValidity(GravitonInfo.version, GravitonInfo.date, GravitonInfo.state)).toBeTruthy()
   })
 
