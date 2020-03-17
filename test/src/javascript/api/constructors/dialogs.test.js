@@ -167,16 +167,12 @@ describe('Test Dialogs Component', () => {
   })
 
   test('checkDiagNum should return true if number is between 0 and 5 inclusive', () => {
-
-    // var htmlElement
-    // htmlElement = document.createElement('div')
-    // htmlElement.setAttribute('id', 'body')
-    // htmlElement.setAttribute('windows', '0')
-    // htmlElement.innerHTML = 'placeholder'
-    // document.body.appendChild(htmlElement)
-    // expect(checkDiagNum(Number(document.getElementById('body').getAttribute('windows')))).toBeTruthy()
     expect(checkDiagNum(0)).toBeTruthy()
     expect(checkDiagNum(5)).toBeTruthy()
   })
-  
+  test('checkDiagNum should return false if number is not between 0 and 5 inclusive', () => {
+    expect(checkDiagNum(-1)).toBeFalsy()
+    expect(checkDiagNum(6)).toBeFalsy()
+  })
+
 })

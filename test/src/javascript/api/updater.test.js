@@ -84,6 +84,7 @@ describe('Test Updater Component', () => {
         expect(testVal).toBe('No Dialog Opened')
       })
     }
+
     expect(typeof checkUpdates).toBe('function')
     checkUpdates()
 
@@ -124,6 +125,7 @@ describe('Test Updater Component', () => {
 
       })
     }
+
     checkUpdates()
   })
 
@@ -132,6 +134,41 @@ describe('Test Updater Component', () => {
   })
   test('updateValidity function should return a defined result', () => {
     expect(updateValidity()).toBeDefined()
+  })
+
+  test('updateValidity function should return false for case 1', () => {
+    // Case 1
+    expect(updateValidity('2.11.0', '200220', 'Alpha')).toBeFalsy()
+  })
+
+  test('updateValidity function should return false for case 2', () => {
+    // Case 2
+    expect(updateValidity('2.11.0', '200218', 'Alpha')).toBeFalsy()
+  })
+
+  test('updateValidity function should return false for case 3', () => {
+    // Case 3
+    expect(updateValidity('0.11.0', '200220', 'Beta')).toBeFalsy()
+  })
+
+  test('updateValidity function should return false for case 4', () => {
+    // Case 4
+    expect(updateValidity('0.11.0', '200218', 'Beta')).toBeFalsy()
+  })
+
+  test('updateValidity function should return false for case 5', () => {
+    // Case 5
+    expect(updateValidity('2.11.0', '200218', 'Alpha')).toBeFalsy()
+  })
+
+  test('updateValidity function should return false for case 6', () => {
+    // Case 6
+    expect(updateValidity('0.11.0', '200220', 'Alpha')).toBeFalsy()
+  })
+
+  test('updateValidity function should return false for case 7', () => {
+    // Case 7
+    expect(updateValidity('0.11.0', '200218', 'Alpha')).toBeFalsy()
   })
 
   test('updateValidity function should return true if Client version < Latest version,' +
@@ -144,28 +181,8 @@ describe('Test Updater Component', () => {
     expect(updateValidity(GravitonInfo.version, GravitonInfo.date, GravitonInfo.state)).toBeTruthy()
   })
 
-  test('updateValidity function should return false for case 1, 2, 3, 4, 5, 6, 7', () => {
-    const GravitonInfo = {
-      date: "200119",
-      version: "1.11.0",
-      state: "Beta"
-    }
-    // Case 1
-    expect(updateValidity('1.11.0', '200219', 'Alpha')).toBeFalsy()
-    // Case 2
-    expect(updateValidity('1.11.0', '200219', 'Beta')).toBeFalsy()
-    // Case 3
-    expect(updateValidity('1.11.0', '200219', 'Beta')).toBeFalsy()
-    // Case 4
-    expect(updateValidity('1.11.0', '200219', 'Beta')).toBeFalsy()
-    // Case 5
-    expect(updateValidity('1.11.0', '200219', 'Alpha')).toBeFalsy()
-    // Case 6
-    expect(updateValidity('1.11.0', '200219', 'Alpha')).toBeFalsy()
-    // Case 7
-    expect(updateValidity('1.11.0', '200219', 'Alpha')).toBeFalsy()
-  })
 })
+
 // describe('update and getLink function', function () {
 //   it('Check update link', function () {
 //     const shell = require('electron').shell
