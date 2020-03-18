@@ -1,5 +1,6 @@
-const { getFormat, getLanguageName, updateCodeMode } = require('../../../../src/javascript/api/format')
-
+const { getFormat, getLanguageName, updateCodeMode, instanceExecute } = require('../../../../src/javascript/api/format')
+// const formatModule = require('../../../../src/javascript/api/format')
+// import * as formatModule from '../../../../src/javascript/api/format'
 describe('Test Control Component', () => {
   test('getFormat should be a function', () => {
     expect(typeof getFormat).toBe('function')
@@ -43,46 +44,11 @@ describe('Test Control Component', () => {
   test('getFormat function should turn obj with language = unkown if invalid file format', () => {
     expect(getFormat('format.errorFormat')).toStrictEqual({ lang: 'unknown', format: 'errorFormat', trust: false })
   })
-  test('getLanguageName function should return formatted language string', () => {
-    expect(getLanguageName('html')).toBe('HTML')
-    expect(getLanguageName('css')).toBe('CSS')
-    expect(getLanguageName('js')).toBe('JavaScript')
-    expect(getLanguageName('jsx')).toBe('React JavaScript')
-    expect(getLanguageName('vue')).toBe('Vue.js')
-    expect(getLanguageName('json')).toBe('JSON ')
-    expect(getLanguageName('go')).toBe('Go')
-    expect(getLanguageName('sql')).toBe('SQL')
-    expect(getLanguageName('rb')).toBe('Ruby')
-    expect(getLanguageName('ruby')).toBe('Ruby')
-    expect(getLanguageName('php')).toBe('PHP')
-    expect(getLanguageName('sass')).toBe('Sass')
-    expect(getLanguageName('dart')).toBe('Dart')
-    expect(getLanguageName('pascal')).toBe('Pascal')
-    expect(getLanguageName('md')).toBe('Markdown')
-    expect(getLanguageName('py')).toBe('Python')
-    expect(getLanguageName('sh')).toBe('Shell')
-    expect(getLanguageName('c')).toBe('C')
-    expect(getLanguageName('ino')).toBe('C')
-    expect(getLanguageName('h')).toBe('C')
-    expect(getLanguageName('woff2')).toBe('Font')
-    expect(getLanguageName('ttf')).toBe('Font')
-    expect(getLanguageName('cpp')).toBe('C++')
-    expect(getLanguageName('c++')).toBe('C++')
-    expect(getLanguageName('cc')).toBe('C++')
-    expect(getLanguageName('cxx')).toBe('C++')
-    expect(getLanguageName('hpp')).toBe('C++')
-    expect(getLanguageName('h++')).toBe('C++')
-    expect(getLanguageName('hh')).toBe('C++')
-    expect(getLanguageName('hxx')).toBe('C++')
-    expect(getLanguageName('csharp')).toBe('C#')
-    expect(getLanguageName('java')).toBe('Java')
-    expect(getLanguageName('m')).toBe('Objective-C')
-    expect(getLanguageName('mm')).toBe('Objective-C')
-    expect(getLanguageName('kt')).toBe('Kotlin')
-    expect(getLanguageName('ts')).toBe('TypeScript')
-    expect(getLanguageName('toml')).toBe('Rust')
-    expect(getLanguageName('rs')).toBe('Rust')
-    expect(getLanguageName('image')).toBe('Image')
+  test('getFormat should be a function', () => {
+    expect(typeof getLanguageName).toBe('function')
+  })
+  test('getFormat function should return a defined result', () => {
+    expect(getLanguageName).toBeDefined()
   })
   test('getLanguageName function should return HTML when input is html', () => {
     expect(getLanguageName('html')).toBe('HTML')
@@ -205,4 +171,21 @@ describe('Test Control Component', () => {
     expect(getLanguageName('rtx')).toBe('rtx')
   })
 
+  test('getFormat should be a function', () => {
+    expect(typeof updateCodeMode).toBe('function')
   })
+  test('getFormat function should return a defined result', () => {
+    expect(updateCodeMode).toBeDefined()
+  })
+
+  test('updateCodeMode function should return false if ', () => {
+    expect(updateCodeMode('../C:/', 'format.html', 'deactivated')).toBeFalsy()
+  })
+  // test('updateCodeMode function should return false if ', () => {
+  //   console.log(formatModule)
+  //   const spy = jest.spyOn(formatModule, 'instanceExecute')
+  //   const result = formatModule.updateCodeMode('../C:/', 'format.html', 'activated')
+  //   expect(spy).toHaveBeenCalledTimes(1)
+  // })
+
+})
