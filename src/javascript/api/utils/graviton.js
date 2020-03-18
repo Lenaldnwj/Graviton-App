@@ -702,4 +702,4 @@ const graviton = {
     setTheme : require('../theming').setTheme
   };
 
-  module.exports = graviton;
+module.exports = graviton;
