@@ -84,7 +84,123 @@ describe('Test Control Component', () => {
     expect(getLanguageName('rs')).toBe('Rust')
     expect(getLanguageName('image')).toBe('Image')
   })
-
+  test('getLanguageName function should return HTML when input is html', () => {
+    expect(getLanguageName('html')).toBe('HTML')
+  })
+  test('getLanguageName function should return HTML when input is css', () => {
+    expect(getLanguageName('css')).toBe('CSS')
+  })
+  test('getLanguageName function should return JavaScript when input is js', () => {
+    expect(getLanguageName('js')).toBe('JavaScript')
+  })
+  test('getLanguageName function should return React JavaScript when input is jsx', () => {
+    expect(getLanguageName('jsx')).toBe('React JavaScript')
+  })
+  test('getLanguageName function should return Vue.js when input is vue', () => {
+    expect(getLanguageName('vue')).toBe('Vue.js')
+  })
+  test('getLanguageName function should return JSON when input is json', () => {
+    expect(getLanguageName('json')).toBe('JSON ')
+  })
+  test('getLanguageName function should return Go when input is go', () => {
+    expect(getLanguageName('go')).toBe('Go')
+  })
+  test('getLanguageName function should return SQL when input is sql', () => {
+    expect(getLanguageName('sql')).toBe('SQL')
+  })
+  test('getLanguageName function should return Ruby when input is rb', () => {
+    expect(getLanguageName('rb')).toBe('Ruby')
+  })
+  test('getLanguageName function should return Ruby when input is ruby', () => {
+    expect(getLanguageName('ruby')).toBe('Ruby')
+  })
+  test('getLanguageName function should return PHP when input is php', () => {
+    expect(getLanguageName('php')).toBe('PHP')
+  })
+  test('getLanguageName function should return Sass when input is sass', () => {
+    expect(getLanguageName('sass')).toBe('Sass')
+  })
+  test('getLanguageName function should return Dart when input is dart', () => {
+    expect(getLanguageName('dart')).toBe('Dart')
+  })
+  test('getLanguageName function should return Pascal when input is pascal', () => {
+    expect(getLanguageName('pascal')).toBe('Pascal')
+  })
+  test('getLanguageName function should return Markdown when input is md', () => {
+    expect(getLanguageName('md')).toBe('Markdown')
+  })
+  test('getLanguageName function should return Python when input is py', () => {
+    expect(getLanguageName('py')).toBe('Python')
+  })
+  test('getLanguageName function should return Shell when input is sh', () => {
+    expect(getLanguageName('sh')).toBe('Shell')
+  })
+  test('getLanguageName function should return C when input is c', () => {
+    expect(getLanguageName('c')).toBe('C')
+  })
+  test('getLanguageName function should return C when input is ino', () => {
+    expect(getLanguageName('ino')).toBe('C')
+  })
+  test('getLanguageName function should return C when input is h', () => {
+    expect(getLanguageName('h')).toBe('C')
+  })
+  test('getLanguageName function should return Font when input is woff2', () => {
+    expect(getLanguageName('woff2')).toBe('Font')
+  })
+  test('getLanguageName function should return Font when input is ttf', () => {
+    expect(getLanguageName('ttf')).toBe('Font')
+  })
+  test('getLanguageName function should return C++ when input is cpp', () => {
+    expect(getLanguageName('cpp')).toBe('C++')
+  })
+  test('getLanguageName function should return C++ when input is c++', () => {
+    expect(getLanguageName('c++')).toBe('C++')
+  })
+  test('getLanguageName function should return C++ when input is cc', () => {
+    expect(getLanguageName('cc')).toBe('C++')
+  })
+  test('getLanguageName function should return C++ when input is cxx', () => {
+    expect(getLanguageName('cxx')).toBe('C++')
+  })
+  test('getLanguageName function should return C++ when input is hpp', () => {
+    expect(getLanguageName('hpp')).toBe('C++')
+  })
+  test('getLanguageName function should return C++ when input is h++', () => {
+    expect(getLanguageName('h++')).toBe('C++')
+  })
+  test('getLanguageName function should return C++ when input is hh', () => {
+    expect(getLanguageName('hh')).toBe('C++')
+  })
+  test('getLanguageName function should return C++ when input is hxx', () => {
+    expect(getLanguageName('hxx')).toBe('C++')
+  })
+  test('getLanguageName function should return C# when input is csharp', () => {
+    expect(getLanguageName('csharp')).toBe('C#')
+  })
+  test('getLanguageName function should return Java when input is java', () => {
+    expect(getLanguageName('java')).toBe('Java')
+  })
+  test('getLanguageName function should return Objective-C when input is m', () => {
+    expect(getLanguageName('m')).toBe('Objective-C')
+  })
+  test('getLanguageName function should return Objective-C when input is mm', () => {
+    expect(getLanguageName('mm')).toBe('Objective-C')
+  })
+  test('getLanguageName function should return Kotlin when input is kt', () => {
+    expect(getLanguageName('kt')).toBe('Kotlin')
+  })
+  test('getLanguageName function should return TypeScript when input is ts', () => {
+    expect(getLanguageName('ts')).toBe('TypeScript')
+  })
+  test('getLanguageName function should return Rust when input is toml', () => {
+    expect(getLanguageName('toml')).toBe('Rust')
+  })
+  test('getLanguageName function should return Rust when input is rs', () => {
+    expect(getLanguageName('rs')).toBe('Rust')
+  })
+  test('getLanguageName function should return Image when input is image', () => {
+    expect(getLanguageName('image')).toBe('Image')
+  })
   test('getLanguageName function should return input string as default string', () => {
     expect(getLanguageName('rtx')).toBe('rtx')
   })
