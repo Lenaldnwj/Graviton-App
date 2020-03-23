@@ -136,43 +136,42 @@ describe('Test Updater Component', () => {
     expect(updateValidity()).toBeDefined()
   })
 
-  test('updateValidity function should return false for case 1', () => {
+  test('updateValidity function should return false for case 1 (Decision Table Technique)', () => {
     // Case 1
     expect(updateValidity('2.11.0', '200220', 'Alpha')).toBeFalsy()
   })
 
-  test('updateValidity function should return false for case 2', () => {
+  test('updateValidity function should return false for case 2 (Decision Table Technique)', () => {
     // Case 2
     expect(updateValidity('2.11.0', '200218', 'Alpha')).toBeFalsy()
   })
 
-  test('updateValidity function should return false for case 3', () => {
+  test('updateValidity function should return false for case 3 (Decision Table Technique)', () => {
     // Case 3
     expect(updateValidity('0.11.0', '200220', 'Beta')).toBeFalsy()
   })
 
-  test('updateValidity function should return false for case 4', () => {
+  test('updateValidity function should return false for case 4 (Decision Table Technique)', () => {
     // Case 4
     expect(updateValidity('0.11.0', '200218', 'Beta')).toBeFalsy()
   })
 
-  test('updateValidity function should return false for case 5', () => {
+  test('updateValidity function should return false for case 5 (Decision Table Technique)', () => {
     // Case 5
     expect(updateValidity('2.11.0', '200218', 'Alpha')).toBeFalsy()
   })
 
-  test('updateValidity function should return false for case 6', () => {
+  test('updateValidity function should return false for case 6 (Decision Table Technique)', () => {
     // Case 6
     expect(updateValidity('0.11.0', '200220', 'Alpha')).toBeFalsy()
   })
 
-  test('updateValidity function should return false for case 7', () => {
+  test('updateValidity function should return false for case 7 (Decision Table Technique)', () => {
     // Case 7
     expect(updateValidity('0.11.0', '200218', 'Alpha')).toBeFalsy()
   })
 
-  test('updateValidity function should return true if Client version < Latest version,' +
-    'Client date < Latest date, Client state = Latest state (Case 8)', () => {
+  test('updateValidity function should return true for case 8 (Decision Table Technique)', () => {
     const GravitonInfo = {
       date: "200219",
       version: "1.13.0",
