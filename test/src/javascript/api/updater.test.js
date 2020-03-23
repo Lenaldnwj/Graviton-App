@@ -2,10 +2,6 @@ const { getLink, getGithubInfo, getGravitonInfo, updateValidity } = require('../
 
 // jest.mock('../../../../src/javascript/api/updater')
 
-// const Application = require('spectron').Application
-// const electronPath = require('electron')
-// const path = require('path')
-// const fs = require('fs')
 let shell = require('electron').shell
 
 describe('Test Updater Component', () => {
