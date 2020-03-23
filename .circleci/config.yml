@@ -9,7 +9,14 @@ jobs:
       - checkout
       - run: npm install
       - run: npm test -- --testPathIgnorePatterns general.test.js
-  build-and-test-linuxMac:
+  build-and-test-linux:
+    docker:
+      - image: fpco/stack-build:lts
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm test -- --testPathIgnorePatterns general.test.js
+  build-and-test-mac:
     docker:
       - image: fpco/stack-build:lts
     steps:
@@ -20,4 +27,5 @@ workflows:
     build-and-test:
       jobs:
         - build-and-test-windows
-        - build-and-test-linuxMac
+        - build-and-test-linux
+        - build-and-test-mac
