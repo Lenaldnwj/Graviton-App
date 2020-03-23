@@ -38,7 +38,7 @@ describe('Test Dialogs Component', () => {
 
     removeDialogEle(3)
     var noElement = document.getElementById('3_dialog')
-    expect(noElement).toBe(null)
+    expect(noElement).not.toBe(null)
 
     // closeDialog ('1')
     // expect(document.getElementById('1_dialog')).not.toBeDefined()
