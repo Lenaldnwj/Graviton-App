@@ -59,7 +59,7 @@ function retrieve(page) {
         <gv-navbutton href="recent_projects" ${page=="Recents"?"default=''":''} >${getTranslation(
           "RecentProjects"
         )}</gv-navbutton>
-        <gv-navbutton href="new_project" ${page=="NewProject"?"default=''":''}>${getTranslation(
+        <gv-navbutton id="new_project_spectron" href="new_project" ${page=="NewProject"?"default=''":''}>${getTranslation(
           "NewProject"
         )}</gv-navbutton>
       </gv-navbar>
@@ -69,7 +69,7 @@ function retrieve(page) {
               ${(function() {
                 let content = "";
                 log.forEach(function(currentLog) {
-                  content += `<cardProject name="${currentLog.Name}" path="${currentLog.Path}"/>`;
+                  content += `<cardProject name="${currentLog.Name}" id = "${currentLog.Name}" path="${currentLog.Path}"/>`;
                 });
                 if (log.length === 0) {
                   return "<emptyProjectsPanel/>";
@@ -78,7 +78,7 @@ function retrieve(page) {
                 }
               })()}
             </div>
-          <div style="display:flex; justify-content:flex-end; margin-top:20px;">
+          <div id="folder_open" style="display:flex; justify-content:flex-end; margin-top:20px;">
             <button onclick="openFolder(); closeWindow('welcome_window');" id='open_folder_welcome' class=" button1 translate_word" idT="OpenFolder">${getTranslation(
               "OpenFolder"
             )}</button> 

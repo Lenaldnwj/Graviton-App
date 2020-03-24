@@ -66,7 +66,7 @@ module.exports = {
         }_dropbtn')" class="dropbtn" >${panel['button']}</button>`
       } else {
         newTab.innerHTML = `
-        <button g_id="${this.id}" class=" translate_word dropbtn " idT="${panel[
+        <button g_id="${this.id}" class=" translate_word dropbtn " id="${panel[
           'button'
         ].replace(/ +/g, '')}" onclick="Menus.trigger('${
           this.id
@@ -104,7 +104,14 @@ module.exports = {
                     : panel['list'][key].hint
               const button = document.createElement('button')
               button.title = hint
+              // button.id = JSON.stringify(panel['list'][key],2,null)
               button.id = Math.random()
+
+              if(panel['list'][key].icon == undefined) {
+                button.id = Math.random()
+              }else {
+                button.id = panel['list'][key].icon + '_spectron'
+              }
               sleeping(1).then(() => {
                 document.getElementById(button.id).onclick = click
               })
@@ -117,7 +124,7 @@ module.exports = {
               } else {
                 button.innerHTML += `
                     <div>${icon}</div>
-                    <div class="translate_word" idT="${key.replace(/ +/g, '')}">
+                    <div class="translate_word" id="${key.replace(/ +/g, '')}">
                       ${getTranslation(key)}
                     </div>
                     <div>${hint}</div>

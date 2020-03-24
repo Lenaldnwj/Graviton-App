@@ -9,7 +9,7 @@ function returnSidePanel(){
                 <gv-navbutton href="Languages" onclick="Settings.navigate('languages');" class="translate_word" idT="Languages">${getTranslation("Languages")}</gv-navbutton>
                 <gv-navbutton href="Editor" onclick="Settings.navigate('editor');" class="translate_word" idT="Editor">${getTranslation("Editor")}</gv-navbutton>
                 <gv-navbutton href="Advanced" onclick="Settings.navigate('advanced');" class="translate_word" idT="Advanced">${getTranslation("Advanced")}</gv-navbutton>
-                <gv-navbutton href="About" onclick="Settings.navigate('about');" class="translate_word" idT="About">${getTranslation("About")}</gv-navbutton>
+                <gv-navbutton href="About" onclick="Settings.navigate('about');" class="translate_word" id="About">${getTranslation("About")}</gv-navbutton>
             </gv-navbar>
             <gv-navcontent id="settings_content">
                 <gv-navpage id="settings.customization" href="Customization" default=""></gv-navpage>

@@ -39,7 +39,7 @@ app.on("ready", function () {
 		icon: __dirname + '/assets/general.png',
 		show:false
 	})
-	main.webContents.openDevTools();
+	// main.webContents.openDevTools();
 	mainWindowState.manage(main);
 	main.loadURL(
 		url.format({
