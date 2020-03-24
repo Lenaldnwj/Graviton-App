@@ -75,11 +75,10 @@ function checkUpdates () {
         console.log(res[0].tag_name + ' ' + GravitonInfo.version)
         // console.log(JSON.stringify(res[0],null, 2) + ' ' + JSON.stringify(GravitonInfo,null, 2))
         const dialog = Dialog({
-          id: 'update',
+          id: 'update_spectron',
           title: `<strong>${GravitonInfo.state}</strong> Update available!`,
           content: getTranslation('DetectedUpdateMessage') + ' ' + res[0].tag_name + '?',
           buttons: {
-            [getTranslation('No')]: {},
             [getTranslation('Yes')]: {
               click: () => shell.openExternal(getLink()),
               important: true

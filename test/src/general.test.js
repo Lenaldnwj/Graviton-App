@@ -92,21 +92,7 @@ describe('Check for updates (E2E)', function () {
       return expect(text).toBe('Open folder')
     })
   })
-  test('Click Recent Project -> Click Tools on top menu -> Click Settings on dropdown', function () {
-    app.client.click('#Graviton-App').then(()=>{
-      app.client.click('#Tools').then(()=>{
-        app.client.click('#settings_spectron').then(()=>{
-          app.client.click('#About_spectron').then(()=>{
-            app.client.click('#update_button_spectron')
-          })
-        })
-      })
-    })
 
-    // return app.client.getText('#Settings').then(function(text){
-    //   return expect(text).toBe('Settings')
-    // })
-  })
   // test('Click Recent Project', function () {
   //   app.client.click('#Graviton-App')
   // })
@@ -178,6 +164,26 @@ describe('Check for updates (E2E)', function () {
   //   })
   // })
 
+  test('Click Recent Project -> Click Tools on top menu -> Click Settings on dropdown', function () {
+    app.client.click('#Graviton-App').then(()=>{
+      app.client.click('#Tools').then(()=>{
+        app.client.click('#settings_spectron').then(()=>{
+          app.client.click('#About_spectron').then(()=>{
+            app.client.click('#update_button_spectron').then(()=>{
+              app.client.click('#update_spectron')
+              // setTimeout(() => { app.stop() }, 2000)
+
+            })
+          })
+        })
+      })
+    })
+
+    // return app.client.getText('#Settings').then(function(text){
+    //   return expect(text).toBe('Settings')
+    // })
+  })
+
   // afterAll(() => {
   //   if (app && app.isRunning()) {
   //     return app.stop()
@@ -186,9 +192,10 @@ describe('Check for updates (E2E)', function () {
   // })
 
   // test('.graviton is created', function () {
-  //   if (this.app && this.app.isRunning()) {
-  //     return this.app.stop()
-  //   }
-  //   return fs.existsSync(DataFolderDir)
+  //   // if (this.app && this.app.isRunning()) {
+  //   //   return this.app.stop()
+  //   // }
+  //   // return fs.existsSync(DataFolderDir)
+  //   return this.app.stop()
   // })
 })
