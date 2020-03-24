@@ -92,32 +92,34 @@ describe('Check for updates (E2E)', function () {
       return expect(text).toBe('Open folder')
     })
   })
-  test('Click stuff', function () {
-    // expect('1').toBe('1')Graviton-App
-    // app.client.click('#Graviton-App')
-    // expect(2).toBe(2)
-
-    // app.client.click('#open_folder_welcome')
-    // app.client.click('. translate_word dropbtn ')
-
-    // app.client.click('#Graviton-App')
-    // app.client.click('#Tools')
-
-    // app.client.click('#settings_spectron')
-    // app.client.click('#settings_spectron')
+  test('Click Recent Project -> Click Tools on top menu -> Click Settings on dropdown', function () {
     app.client.click('#Graviton-App').then(()=>{
       app.client.click('#Tools').then(()=>{
-        app.client.click('#settings_spectron')
+        app.client.click('#settings_spectron').then(()=>{
+          app.client.click('#About_spectron').then(()=>{
+            app.client.click('#update_button_spectron')
+          })
+        })
       })
     })
-
-    // app.client.click('#About')
 
     // return app.client.getText('#Settings').then(function(text){
     //   return expect(text).toBe('Settings')
     // })
   })
-  // test('Click stuff', async () => {
+  // test('Click Recent Project', function () {
+  //   app.client.click('#Graviton-App')
+  // })
+  // test('Click Tools on top menu -> Click Settings on dropdown', function () {
+  //   // app.client.click('#Tools')
+  //   app.client.click('#Tools').then(()=> {
+  //     app.client.click('#settings_spectron')
+  //   })
+  // })
+  // test('Click Settings on dropdown', function () {
+  //   app.client.click('#settings_spectron')
+  // })
+    // test('Click stuff', async () => {
   //   // expect('1').toBe('1')Graviton-App
   //   // app.client.click('#Graviton-App')
   //   // expect(2).toBe(2)
