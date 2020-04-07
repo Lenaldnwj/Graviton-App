@@ -1,6 +1,7 @@
 const { getFormat, getLanguageName, updateCodeMode, instanceExecute } = require('../../../../src/javascript/api/format')
-// const formatModule = require('../../../../src/javascript/api/format')
-// import * as formatModule from '../../../../src/javascript/api/format'
+
+jest.mock('../../../../src/javascript/api/executor')
+
 describe('Test Control Component', () => {
   test('getFormat should be a function', () => {
     expect(typeof getFormat).toBe('function')
@@ -177,9 +178,8 @@ describe('Test Control Component', () => {
   test('getFormat function should return a defined result', () => {
     expect(updateCodeMode).toBeDefined()
   })
-
-  test('updateCodeMode function should return false if ', () => {
-    expect(updateCodeMode('../C:/', 'format.html', 'deactivated')).toBeFalsy()
+  test('updateCodeMode function should return true if both inputs defined', () => {
+    expect(updateCodeMode('../C:/', 'format.html')).toBeTruthy()
   })
   // test('updateCodeMode function should return false if ', () => {
   //   console.log(formatModule)
