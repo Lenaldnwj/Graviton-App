@@ -1,6 +1,4 @@
-// /**
-//  * @desc Basic testing
-//  */
+
 //
 // const Application = require('spectron').Application
 // const electronPath = require('electron')
@@ -52,10 +50,6 @@
 //   //   return fs.existsSync(DataFolderDir)
 //   // })
 // })
-
-/**
- * @desc Basic testing
- */
 
 const Application = require('spectron').Application
 const electronPath = require('electron')
