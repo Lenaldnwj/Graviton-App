@@ -50,7 +50,8 @@
     "rebuild": "npm run compile:sass && electron-rebuild -f -w node-pty",
     "standard": "standard --fix",
     "test": "jest --runInBand --detectOpenHandles",
-    "test-coverage": "jest --coverage --runInBand --detectOpenHandles"
+    "test-coverage": "jest --coverage --runInBand --detectOpenHandles",
+    "test-e2e": "npm test -- -t \"(E2E)\""
   },
   "standard": {
     "ignore": [
