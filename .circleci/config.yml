@@ -8,21 +8,21 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - run: npm test -- --testPathIgnorePatterns general.test.js
+      - run: npm test -- --testPathIgnorePatterns checkUpdate.test.js
   build-and-test-linux:
     docker:
       - image: fpco/stack-build:lts
     steps:
       - checkout
       - run: npm install
-      - run: npm test -- --testPathIgnorePatterns general.test.js
+      - run: npm test -- --testPathIgnorePatterns checkUpdate.test.js
   build-and-test-mac:
     docker:
       - image: fpco/stack-build:lts
     steps:
       - checkout
       - run: npm install
-      - run: npm test -- --testPathIgnorePatterns general.test.js
+      - run: npm test -- --testPathIgnorePatterns checkUpdate.test.js
 workflows:
     build-and-test:
       jobs:
