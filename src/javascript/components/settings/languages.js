@@ -23,7 +23,7 @@ function returnLanguages(){
             ${(function(){
                 let content = "";
                 for (i = 0; i < languages.length; i++) {
-                content += `<languageComponent name="${languages[i].name}" class="${graviton.getUILanguage() == languages[i].name ? "active":""}"/>`
+                content += `<languageComponent name="${languages[i].name}" id="${languages[i].name + "_spectron"}" class="${graviton.getUILanguage() == languages[i].name ? "active":""}"/>`
                 }
                 return content
             })()}
