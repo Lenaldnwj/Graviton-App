@@ -154,14 +154,6 @@ describe('Test Dialogs Component', () => {
   })
 
   test('checkDiagNum should return false if number is not between 0 and 5 inclusive (BVA)', () => {
-
-    // var htmlElement
-    // htmlElement = document.createElement('div')
-    // htmlElement.setAttribute('id', 'body')
-    // htmlElement.setAttribute('windows', '6')
-    // htmlElement.innerHTML = 'placeholder'
-    // document.body.appendChild(htmlElement)
-    // expect(checkDiagNum(Number(document.getElementById('body').getAttribute('windows')))).toBeFalsy()
     expect(checkDiagNum(6)).toBeFalsy()
     expect(checkDiagNum(-1)).toBeFalsy()
   })
