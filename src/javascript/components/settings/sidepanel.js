@@ -6,7 +6,7 @@ function returnSidePanel(){
             <gv-navbar>
                 <gv-navtitle class="translate_word" idT="Settings">${getTranslation("Settings")}</gv-navtitle>
                 <gv-navbutton href="Customization" onclick="Settings.navigate('customization')" class="translate_word" idT="Customization" default="" >${getTranslation("Customization")}</gv-navbutton>
-                <gv-navbutton href="Languages" onclick="Settings.navigate('languages');" class="translate_word" idT="Languages">${getTranslation("Languages")}</gv-navbutton>
+                <gv-navbutton href="Languages" onclick="Settings.navigate('languages');" class="translate_word" id="Languages_spectron">${getTranslation("Languages")}</gv-navbutton>
                 <gv-navbutton href="Editor" onclick="Settings.navigate('editor');" class="translate_word" idT="Editor">${getTranslation("Editor")}</gv-navbutton>
                 <gv-navbutton href="Advanced" onclick="Settings.navigate('advanced');" class="translate_word" idT="Advanced">${getTranslation("Advanced")}</gv-navbutton>
                 <gv-navbutton href="About" onclick="Settings.navigate('about');" class="translate_word" id="About_spectron">${getTranslation("About")}</gv-navbutton>
