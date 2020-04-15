@@ -1,4 +1,4 @@
-const { getFormat, getLanguageName, updateCodeMode, instanceExecute } = require('../../../../src/javascript/api/format')
+const { getFormat, getLanguageName, updateCodeMode } = require('../../../../src/javascript/api/format')
 
 jest.mock('../../../../src/javascript/api/executor')
 
@@ -181,11 +181,5 @@ describe('Test Control Component', () => {
   test('updateCodeMode function should return true if both inputs defined', () => {
     expect(updateCodeMode('../C:/', 'format.html')).toBeTruthy()
   })
-  // test('updateCodeMode function should return false if ', () => {
-  //   console.log(formatModule)
-  //   const spy = jest.spyOn(formatModule, 'instanceExecute')
-  //   const result = formatModule.updateCodeMode('../C:/', 'format.html', 'activated')
-  //   expect(spy).toHaveBeenCalledTimes(1)
-  // })
 
 })
