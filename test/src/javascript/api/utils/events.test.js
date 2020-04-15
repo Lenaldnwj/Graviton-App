@@ -59,5 +59,11 @@ describe('Test Events Component', () => {
       }
     }))
   })
-  
+
+  // test('gravitonLoaded  should create graviton_loaded custom event', () => {
+  //   expect(gravitonLoaded()).toStrictEqual(new CustomEvent('graviton_loaded', {}))
+  // })
+  // test('gravitonLoaded  should create graviton_loaded custom event', () => {
+  //   expect(gravitonLoaded()).toStrictEqual(new CustomEvent('graviton_loaded', {}))
+  // })
 })
