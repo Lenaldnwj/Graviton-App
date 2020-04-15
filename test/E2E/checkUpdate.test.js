@@ -11,6 +11,8 @@ const app = new Application({
 })
 
 describe('Check for updates (E2E)', function () {
+
+// describe('Check for updates', function () {
   jest.setTimeout(30000)
   beforeAll(() => {
     return app.start()
