@@ -10,7 +10,7 @@ const app = new Application({
   args: ['.']
 })
 
-describe('Check for updates (E2E)', function () {
+describe('Check for languages (E2E)', function () {
   jest.setTimeout(30000)
   beforeAll(() => {
     return app.start()
