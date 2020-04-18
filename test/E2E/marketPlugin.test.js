@@ -101,17 +101,17 @@ describe('Check for marking plugin lululu', function () {
   //   })
   // })
 
-  test('Click Recent Project -> Click Tools on top menu -> Click Settings on dropdown', function () {
+  test('Click Recent Project -> Click Tools on top menu -> Click Market on dropdown', function () {
     app.client.click('#Graviton-App').then(()=>{
       app.client.click('#Tools').then(()=>{
         app.client.click('#Market').then(()=>{
-          // app.client.click('#About_spectron').then(()=>{
-          //   // app.client.click('#update_button_spectron').then(()=>{
+          app.client.click('#FluentMod').then(()=>{
+            app.client.click('#FluentMod-install').then(()=>{
           //   //   app.client.click('#update_spectron')
           //   //   // setTimeout(() => { app.stop() }, 2000)
           //   //
-          //   // })
-          // })
+            })
+          })
         })
       })
     })

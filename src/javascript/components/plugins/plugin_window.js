@@ -123,8 +123,8 @@ function retrieveWindow({
       )}</button>`;
       return button_content;
     } else {
-      return `<button onclick="Market.installExtension('${package.name}')" id="${Math.random() +
-        "install"}" class="button1">${getTranslation(
+      return `<button onclick="Market.installExtension('${package.name}')" id="${package.name +
+        "-install"}" class="button1">${getTranslation(
         "Install"
       )}</button> `;
     }

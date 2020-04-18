@@ -52,7 +52,7 @@ function retrieveCard({
     `
       <div click="$openMe" class="extension_div" name="${
         packageConf.name
-        }" update="${newUpdate}">
+        }" id="${packageConf.name}" update="${newUpdate}">
           ${newUpdate ? "<updateIcon/>" : ""} 
         <div>
           <cardLogo/>
