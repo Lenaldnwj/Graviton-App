@@ -50,7 +50,7 @@ module.exports = {
 
     const buildingCloseButton = puffin.element(
       `
-        <button class="Button1 close_exts" click="$closeMe"></button>
+        <button class="Button1 close_exts" id="close_button" click="$closeMe"></button>
       `,
       {
         methods: {

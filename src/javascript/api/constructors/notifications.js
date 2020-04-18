@@ -54,7 +54,7 @@ module.exports = {
     body.classList.add('notificationBody')
     body.setAttribute('id', graviton.notifications.length)
     body.innerHTML = `
-      <button class=close onclick="closeNotification(this)">
+      <button class=close id = "close_notification" onclick="closeNotification(this)">
           ${icons['close']}
       </button>
       <h1>${title}</h1>

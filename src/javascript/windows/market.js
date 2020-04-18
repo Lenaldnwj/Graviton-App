@@ -189,6 +189,7 @@ module.exports = {
                     `;
             }
             for (const pluginConf of plugins_list) {
+              console.log(pluginConf)
               if (document.getElementById("loading_exts2") != undefined) {
                 document.getElementById("loading_exts2").remove();
               }

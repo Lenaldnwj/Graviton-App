@@ -107,9 +107,12 @@ describe('Check for marking plugin lululu', function () {
         app.client.click('#Market').then(()=>{
           app.client.click('#FluentMod').then(()=>{
             app.client.click('#FluentMod-install').then(()=>{
-          //   //   app.client.click('#update_spectron')
-          //   //   // setTimeout(() => { app.stop() }, 2000)
-          //   //
+              app.client.click('#close_notification').then(()=>{
+                app.client.click('#button_installed').then(()=>{
+                  app.client.click('#FluentMod').then(()=>{
+                  })
+                })
+              })
             })
           })
         })
