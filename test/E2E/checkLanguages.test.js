@@ -41,18 +41,12 @@ describe('Check for languages (E2E)', function () {
         app.client.click('#settings_spectron').then(()=>{
           app.client.click('#Languages_spectron').then(()=>{
             app.client.click('#french_spectron').then(()=>{
-              // app.client.click('#update_spectron')
-              // setTimeout(() => { app.stop() }, 2000)
 
             })
           })
         })
       })
     })
-
-    // return app.client.getText('#Settings').then(function(text){
-    //   return expect(text).toBe('Settings')
-    // })
   })
 
   // afterAll(() => {
