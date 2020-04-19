@@ -16,7 +16,6 @@ describe('Check for languages (E2E)', function () {
     return app.start()
   })
   test('Graviton window is opened', function () {
-    // expect('1').toBe('1')
     return app.client.getWindowCount().then(function (count) {
       expect(count).toBe(1)
     })
