@@ -1,6 +1,27 @@
 const { animationStatus, closeDialog, removeDialogEle, reduceWinCount, increaseWinCount, checkDiagNum } = require('../../../../../src/javascript/api/constructors/dialogs')
 
 describe('Test Dialogs Component', () => {
+
+  test('removeDialogEle should be a function', () => {
+    expect(typeof removeDialogEle).toBe('function')
+  })
+  test('removeDialogEle function should return a defined result', () => {
+    expect(removeDialogEle).toBeDefined()
+  })
+
+  test('removeDialogEle should remove element if element exist in document', () => {
+    var htmlElement
+    htmlElement = document.createElement('div')
+    htmlElement.setAttribute('id', '3_dialog')
+    document.body.appendChild(htmlElement)
+    expect(document.getElementById('3_dialog')).not.toBe(null)
+
+    removeDialogEle(3)
+    expect(document.getElementById('3_dialog')).toBe(null)
+
+  })
+
+
   test('animationStatus should be a function', () => {
     expect(typeof animationStatus).toBe('function')
   })
@@ -11,7 +32,7 @@ describe('Test Dialogs Component', () => {
     let current_config = {
       animationsPreferences: 'activated'
     }
-    expect(animationStatus(current_config)).toBe(`window_slide_up linear 0.1s;`)
+    expect(animationStatus(current_config)).toBe('window_slide_up linear 0.1s;')
 
   })
   test('animationStatus should return null if animationsPreferences is not activated', () => {
@@ -21,28 +42,18 @@ describe('Test Dialogs Component', () => {
     expect(animationStatus(current_config)).toBe('')
   })
 
-  test('removeDialogEle should be a function', () => {
-    expect(typeof removeDialogEle).toBe('function')
-  })
-  test('removeDialogEle function should return a defined result', () => {
-    expect(removeDialogEle).toBeDefined()
-  })
 
-  test('removeDialogEle should remove element if element exist in document', () => {
+  test('removeDialogEle should not remove element that are not input into function', () => {
 
     var htmlElement
     htmlElement = document.createElement('div')
-    htmlElement.setAttribute('id', '3_dialog')
+    htmlElement.setAttribute('id', '80_dialog')
     htmlElement.innerHTML = 'placeholder'
     document.body.appendChild(htmlElement)
 
-    removeDialogEle(3)
-    var noElement = document.getElementById('3_dialog')
-    expect(noElement).toBe(null)
-
-    // closeDialog ('1')
-    // expect(document.getElementById('1_dialog')).not.toBeDefined()
-    // expect(document.getElementById('1_dialog').innerHTML).toBe('placeholder')
+    removeDialogEle(10)
+    var existElement = document.getElementById('80_dialog')
+    expect(existElement).not.toBe(null)
   })
 
   test('removeDialogEle should remove element', () => {
@@ -66,20 +77,8 @@ describe('Test Dialogs Component', () => {
     htmlElement.innerHTML = 'placeholder'
     document.body.appendChild(htmlElement)
 
+
     expect(removeDialogEle(4)).toBeTruthy()
-  })
-
-  test('removeDialogEle should not remove element that are not input into function', () => {
-
-    var htmlElement
-    htmlElement = document.createElement('div')
-    htmlElement.setAttribute('id', '80_dialog')
-    htmlElement.innerHTML = 'placeholder'
-    document.body.appendChild(htmlElement)
-
-    removeDialogEle(10)
-    var existElement = document.getElementById('80_dialog')
-    expect(existElement).not.toBe(null)
   })
 
   test('removeDialogEle should return false if element not found', () => {
@@ -112,7 +111,6 @@ describe('Test Dialogs Component', () => {
   test('increaseWinCount function should return a defined result', () => {
     expect(increaseWinCount).toBeDefined()
   })
-
   test('increaseWinCount should increase window attribute of element by 1', () => {
     document.getElementById('body').removeAttribute('windows')
     var htmlEle
