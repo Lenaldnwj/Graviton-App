@@ -27,61 +27,6 @@ describe('Check for languages (E2E)', function () {
     })
   })
 
-  // test('Click Recent Project', function () {
-  //   app.client.click('#Graviton-App')
-  // })
-  // test('Click Tools on top menu -> Click Settings on dropdown', function () {
-  //   // app.client.click('#Tools')
-  //   app.client.click('#Tools').then(()=> {
-  //     app.client.click('#settings_spectron')
-  //   })
-  // })
-  // test('Click Settings on dropdown', function () {
-  //   app.client.click('#settings_spectron')
-  // })
-  // test('Click stuff', async () => {
-  //   // expect('1').toBe('1')Graviton-App
-  //   // app.client.click('#Graviton-App')
-  //   // expect(2).toBe(2)
-  //
-  //   // app.client.click('#open_folder_welcome')
-  //   // app.client.click('. translate_word dropbtn ')
-  //
-  //   // app.client.click('#Graviton-App')
-  //   // app.client.click('#Tools')
-  //
-  //   // app.client.click('#settings_spectron')
-  //   // app.client.click('#settings_spectron')
-  //   await app.client.click('#Graviton-App')
-  //   await app.client.click('#Help')
-  //   await app.client.click('#About')
-  //
-  //   // app.client.click('#About')
-  //
-  //   // return app.client.getText('#Settings').then(function(text){
-  //   //   return expect(text).toBe('Settings')
-  //   // })
-  // })
-  // test('Check recent_projects text', () => {
-  //   return app.client.getText('#recent_projects').then(function(text){
-  //     return expect(text).toBe('Graviton-App')
-  //   })
-  // })
-  // test('Click stuff', function () {
-  //   // expect('1').toBe('1')Graviton-App
-  //   // app.client.click('#Graviton-App')
-  //   // expect(2).toBe(2)
-  //   return app.client.click('#Graviton-App').getWindowCount().then(function(count){
-  //     return expect(count).toBe(3)
-  //   })
-  // })
-  // test('Settings window is opened', function () {
-  //   // expect('1').toBe('1')
-  //   return app.client.getWindowCount().then(function (count) {
-  //     expect(count).toBe(1)
-  //   })
-  // })
-
   test('External link to Graviton Github page is opened', function () {
     const github = require('octonode')
     const client = github.client()
