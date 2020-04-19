@@ -10,7 +10,7 @@ const app = new Application({
   args: ['.']
 })
 
-describe('Check for marking plugin lululu', function () {
+describe('Check for marking plugin (E2E)', function () {
 
 // describe('Check for updates', function () {
   jest.setTimeout(30000)
@@ -107,6 +107,8 @@ describe('Check for marking plugin lululu', function () {
         app.client.click('#Market').then(()=>{
           app.client.click('#FluentMod').then(()=>{
             app.client.click('#FluentMod-install').then(()=>{
+              // setTimeout(() => { app.stop() }, 5000)
+
               app.client.click('#close_notification').then(()=>{
                 app.client.click('#button_installed').then(()=>{
                   app.client.click('#FluentMod').then(()=>{
