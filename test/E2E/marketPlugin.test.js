@@ -12,13 +12,11 @@ const app = new Application({
 
 describe('Check for market plugin (E2E)', function () {
 
-// describe('Check for updates', function () {
   jest.setTimeout(30000)
   beforeAll(() => {
     return app.start()
   })
   test('Graviton window is opened', function () {
-    // expect('1').toBe('1')
     return app.client.getWindowCount().then(function (count) {
       expect(count).toBe(1)
     })
