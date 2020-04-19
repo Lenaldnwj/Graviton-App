@@ -10,7 +10,7 @@ const app = new Application({
   args: ['.']
 })
 
-describe('Check for marking plugin (E2E)', function () {
+describe('Check for market plugin (E2E)', function () {
 
 // describe('Check for updates', function () {
   jest.setTimeout(30000)
