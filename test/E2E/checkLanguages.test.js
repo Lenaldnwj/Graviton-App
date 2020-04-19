@@ -34,13 +34,6 @@ describe('Check for languages (E2E)', function () {
     expect(JSON.stringify(ghrepo)).toBe(grav)
 
   })
-  // test('Graviton window is opened', function () {
-  //   // expect('1').toBe('1')
-  //   return app.client.getSelectedText().then(function (selectedText) {
-  //     console.log(selectedText)
-  //     console.log('HELLOOOO')
-  //   })
-  // })
 
   test('Click Recent Project -> Click Tools on top menu -> Click Settings on dropdown -> Click Languages -> Click French', function () {
     app.client.click('#Graviton-App').then(()=>{
