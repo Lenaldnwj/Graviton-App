@@ -15,13 +15,6 @@ describe('Test Language/Translate Component', () => {
     expect(getTranslation).toBeDefined()
   })
 
-  // test('getTranslation returns french translation', () => {
-  //
-  //     setTimeout(function(){ expect(getTranslation('FullWelcomeMessage')).toBe('Welcome to Welcome to Graviton') }, 3000)
-  //     // expect(getTranslation('FullWelcomeMessage')).toBe('Welcome to Graviton')
-  //     // expect(getTranslation('ShowWelcome')).toBe('Afficher l’accueil')
-  //   })
-
   test('translateToLanguage should be a function', () => {
     expect(typeof translateToLanguage).toBe('function')
   })
