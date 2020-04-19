@@ -21,13 +21,6 @@ describe('Check for languages (E2E)', function () {
       expect(count).toBe(1)
     })
   })
-  // test('Click on project name', () => {
-  //   return app.client.click('#pfn_318057').then(() => {
-  //     return app.client.getWindowCount().then(function(count){
-  //       expect(count).toBe(2)
-  //     })
-  //   })
-  // })
   test('Check folder_open text', () => {
     return app.client.getText('#folder_open').then(function(text){
       return expect(text).toBe('Open folder')
